@@ -8,4 +8,17 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
+<header>
+</header>
+<main>
 {@render children()}
+</main>
+
+<style>
+ :global(*) {
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+
+</style>
