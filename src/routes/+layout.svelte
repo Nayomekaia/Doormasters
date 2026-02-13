@@ -4,7 +4,6 @@
 	import Bottemnav from '$lib/organisms/Bottom-nav.svelte';
 	import Footer from '$lib/organisms/Footer.svelte';
 
-
 	let { children } = $props();
 </script>
 
@@ -13,23 +12,30 @@
 </svelte:head>
 
 <header>
-<Topnav />
-<Bottemnav />
+	<Topnav />
+	<Bottemnav />
 </header>
  
 <main>
-{@render children()}
+	{@render children()}
 </main>
-
 
 <Footer />
 
-
 <style>
- :global(*) {
-    padding: 0;
-    scroll-behavior: smooth;
-  }
+	:global(html, body) {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		overflow-x: hidden; /* voorkomt horizontaal scrollen */
+		scroll-behavior: smooth;
+	}
 
+	:global(*) {
+		box-sizing: border-box;
+	}
 
+	main {
+		width: 100%;
+	}
 </style>
