@@ -5,27 +5,21 @@
 
 	let selectedDeur = '';
 
-	const deurOpties = [
-		'Sectionaal Deur',
-		'Roldeur',
-		'Openslaande Deur',
-		'Industriële Deur'
-	];
+	const deurOpties = ['Sectionaal Deur', 'Roldeur', 'Openslaande Deur', 'Industriële Deur'];
 </script>
 
 <svelte:head>
-	<title>Offerte | Doormasters </title>
+	<title>Offerte | Doormasters</title>
 </svelte:head>
 
 <Hero
 	title="OFFERTES AANVRAGEN"
 	description="Vraag eenvoudig en vrijblijvend een offerte aan. Vul het formulier in met je wensen en afmetingen, dan nemen wij zo snel mogelijk contact met je op met een passend voorstel."
-	image="none">
-</Hero>
+	image="none"
+></Hero>
 
 <!-- PAGINA LAYOUT: CONTACT LINKS, FORMULIER RECHTS -->
 <section class="page-wrapper">
-
 	<!-- CONTACT CARD -->
 	<section class="contact-wrapper">
 		<Contact />
@@ -47,7 +41,13 @@
 
 				<label for="achternaam">
 					<p>Achternaam<span>*</span></p>
-					<input type="text" name="achternaam" id="achternaam" placeholder="Bijv. van Huizen" required />
+					<input
+						type="text"
+						name="achternaam"
+						id="achternaam"
+						placeholder="Bijv. van Huizen"
+						required
+					/>
 				</label>
 
 				<label for="adres">
@@ -103,12 +103,18 @@
 				<h3>Offerte Aanvraag</h3>
 
 				<fieldset class="radio-group">
-					<legend>Soort deur<span>*</span></legend>
+					<legend style="font-family: var(--font-primary); font-weight: var(--fw-light; color: var(--color-blue-dark);">Soort deur<span>*</span></legend>
 					<p class="help-text">Selecteer hier de deur van uw keuze</p>
 
 					{#each deurOpties as optie}
 						<label class="radio-label">
-							<input type="radio" name="soortDeur" value={optie} bind:group={selectedDeur} required />
+							<input
+								type="radio"
+								name="soortDeur"
+								value={optie}
+								bind:group={selectedDeur}
+								required
+							/>
 							<span>{optie}</span>
 						</label>
 					{/each}
@@ -124,126 +130,159 @@
 </section>
 
 <style>
-/* PAGINA LAYOUT */
-.page-wrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	padding: 2rem;
-	max-width: 1400px;
-	margin: 0 auto;
-}
-
-@media (min-width: 1024px) {
+	/* PAGINA LAYOUT */
 	.page-wrapper {
-		flex-direction: row;
-		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding: 2rem;
+		max-width: 1400px;
+		margin: 0 auto;
 	}
-}
 
-/* CONTACT CARD LINKS */
-.contact-wrapper {
-	width: 100%;
-}
+	@media (min-width: 1024px) {
+		.page-wrapper {
+			flex-direction: row;
+			align-items: flex-start;
+		}
+	}
 
-@media (min-width: 1024px) {
+	/* CONTACT CARD LINKS */
 	.contact-wrapper {
 		width: 100%;
-		max-width: 400px;
-		position: sticky;
-		top: 2rem;
 	}
-}
 
-/* FORMULIER RECHTS */
-.formulier-wrapper {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-}
+	@media (min-width: 1024px) {
+		.contact-wrapper {
+			width: 100%;
+			max-width: 400px;
+			position: sticky;
+			top: 2rem;
+		}
+	}
 
-.offerte-formulier {
-	width: 100%;
-	max-width: 800px;
-	background-color: #f8f9fa;
-	border: 1px solid #dee2e6;
-	border-radius: 8px;
-	padding: 2rem;
-}
+	/* FORMULIER RECHTS */
+	.formulier-wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
 
-/* BUTTON CENTREREN */
-.button-wrapper {
-	display: flex;
-	justify-content: center;
-	margin-top: 2rem;
-	width: 100%;
-}
-.button-wrapper Button {
-	display: block;
-}
+	.offerte-formulier {
+		width: 100%;
+		max-width: 800px;
+		background-color: #f8f9fa;
+		border: 1px solid #dee2e6;
+		border-radius: 8px;
+		padding: 2rem;
+	}
 
-/* FORMULIER STYLING */
-.formulier-sectie {
-	margin-bottom: 2rem;
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1.25rem;
-}
+	/* BUTTON CENTREREN */
+	.button-wrapper {
+		display: flex;
+		justify-content: center;
+		margin-top: 2rem;
+		width: 100%;
+	}
+	.button-wrapper Button {
+		display: block;
+	}
 
-.formulier-sectie-full {
-	margin-bottom: 2rem;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-}
-
-@media (min-width: 768px) {
+	/* FORMULIER STYLING */
 	.formulier-sectie {
-		grid-template-columns: 1fr 1fr;
+		margin-bottom: 2rem;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
 	}
-}
 
-/* RADIO BUTTONS */
-.radio-group {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-}
+	.formulier-sectie-full {
+		margin-bottom: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
 
-.radio-label {
-	display: flex;
-	flex-direction: row;
-	gap: 0.75rem;
-	cursor: pointer;
-	align-items: center;
-}
+	@media (min-width: 768px) {
+		.formulier-sectie {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
 
-.radio-label input[type="radio"] {
-	width: 1.25rem;
-	height: 1.25rem;
-	accent-color: var(--color-blue-dark);
-}
-.radio-label span {
-	color: var(--color-blue-dark);
-	font-size: 0.9375rem;
-}
+	/* RADIO BUTTONS */
+	.radio-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
 
-/* OVERIGE STYLING: H2, H3, INPUTS, ETC */
-h2 { color: var(--color-blue-dark); font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; }
-h3 { color: var(--color-blue-dark); font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; }
+	.radio-label {
+		display: flex;
+		flex-direction: row;
+		gap: 0.75rem;
+		cursor: pointer;
+		align-items: center;
+	}
 
-label { display: flex; flex-direction: column; gap: 0.5rem; }
-label p { color: var(--color-blue-dark); font-size: 0.875rem; font-weight: 500; margin: 0; }
-label p span, legend span { color: #dc3545; }
+	.radio-label input[type='radio'] {
+		width: 1.25rem;
+		height: 1.25rem;
+		accent-color: var(--color-blue-dark);
+	}
+	.radio-label span {
+		color: var(--color-blue-dark);
+		font-size: 0.9375rem;
+	}
 
-input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select {
-	padding: 0.75rem;
-	border: 1px solid #ced4da;
-	border-radius: 4px;
-	background-color: white;
-	transition: border-color 0.2s;
-}
+	/* OVERIGE STYLING: H2, H3, INPUTS, ETC */
+	h2 {
+		color: var(--color-blue-dark);
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 2rem;
+	}
+	h3 {
+		color: var(--color-blue-dark);
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
 
-input::placeholder { color: #6c757d; }
-input:focus, select:focus { outline: none; border-color: var(--color-blue-dark); box-shadow: 0 0 0 3px rgba(13,110,253,0.1); }
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	label p {
+		color: var(--color-blue-dark);
+		font-size: 0.875rem;
+		font-weight: 500;
+		margin: 0;
+	}
+	label p span,
+	legend span {
+		color: #dc3545;
+	}
+
+	input[type='text'],
+	input[type='email'],
+	input[type='tel'],
+	input[type='number'],
+	select {
+		padding: 0.75rem;
+		border: 1px solid #ced4da;
+		border-radius: 4px;
+		background-color: white;
+		transition: border-color 0.2s;
+	}
+
+	input::placeholder {
+		color: #6c757d;
+	}
+	input:focus,
+	select:focus {
+		outline: none;
+		border-color: var(--color-blue-dark);
+		box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+	}
 </style>
