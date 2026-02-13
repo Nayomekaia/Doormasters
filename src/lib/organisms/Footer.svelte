@@ -75,11 +75,11 @@
         <p>Ons team staat klaar om u de juiste antwoorden te geven.</p>
         <ul>
           <li>Doormasters BV</li>
-          <li>Noord 135 d</li>
-          <li>2931SJ Krimpen aan de Lek</li>
+          <li>Middelblok 136 d</li>
+          <li>2831BP Gouderak</li>
           <li><a href="mailto:info@door-masters.nl">info@door-masters.nl</a></li>
           <li><a href="tel:0853031597">085 - 3031597</a></li>
-        </ul>
+        </ul>        
       </div>
     </section>
 
@@ -99,6 +99,7 @@
     width: 100%;
     background-color: var(--color-white);
     border-top: 1px solid var(--neutral-900);
+    font-family: var(--font-primary);
   }
 
   .wrapper {
@@ -126,14 +127,14 @@
   }
 
   p {
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
   }
 
   section {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   ul {
@@ -142,23 +143,32 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   a {
     color: var(--color-blue-dark);
     text-decoration: none;
     transition: all 0.2s ease;
+    font-family: var(--font-primary);
   }
 
   a:hover {
     text-decoration: underline;
   }
 
+  li {
+    transition: transform 0.15s ease;
+  }
+
+  li:hover {
+    transform: translateX(3px);
+  }
+
   .certificate {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.75rem;
     margin-top: 0.5rem;
   }
 
@@ -182,6 +192,13 @@
     list-style: none;
     user-select: none;
     cursor: pointer;
+    padding: 0.25rem 0;
+    font-family: var(--font-primary);
+  }
+
+  summary h5 {
+    margin: 0;
+    /* GEEN font-size, styleguide bepaalt */
   }
 
   summary::-webkit-details-marker {
@@ -190,7 +207,8 @@
 
   summary::after {
     content: "▼";
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    margin-left: 0.25rem;
     transition: transform 0.3s ease;
   }
 
@@ -199,7 +217,9 @@
   }
 
   details ul {
-    padding-top: 1rem;
+    padding-top: 0.5rem;
+    transition: max-height 0.3s ease; /* vloeiende animatie */
+    overflow: hidden;
   }
 
   .divider {
@@ -225,7 +245,6 @@
       padding: 3rem 5%;
     }
 
-    /* Rij 1: Logo, Menu heading, Contact heading */
     .logo {
       grid-column: 1 / 2;
       grid-row: 1;
@@ -242,7 +261,6 @@
       grid-row: 1 / 3;
     }
 
-    /* Rij 2: Bedrijfsinfo tekst */
     .company-info {
       grid-column: 1 / 2;
       grid-row: 2;
@@ -252,20 +270,17 @@
       max-width: 400px;
     }
 
-    /* Rij 3: Certificaten */
     .company-info .certificate {
       grid-column: 1 / 2;
       grid-row: 3;
     }
 
-    /* Rij 4: Divider */
     .divider {
       grid-column: 1 / -1;
       grid-row: 4;
       margin: 1rem 0;
     }
 
-    /* Rij 5: Footer bottom */
     .footer-bottom {
       grid-column: 1 / -1;
       grid-row: 5;
