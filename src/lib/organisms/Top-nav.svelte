@@ -49,12 +49,12 @@
       <li><span class="separator">|</span></li>
       <li><a href="?lang=es">ES</a></li>
     </ul>
-    <li><a href="/" on:click={closeMenu}>HOME</a></li>
-    <li><a href="/projecten" on:click={closeMenu}>PROJECTEN</a></li>
-    <li><a href="/service" on:click={closeMenu}>SERVICE</a></li>
-    <li><a href="/kennisbank" on:click={closeMenu}>KENNISBANK</a></li>
-    <li><a href="/partners" on:click={closeMenu}>PARTNERS</a></li>
-    <li><a href="/over-ons" on:click={closeMenu}>OVER ONS</a></li>
+    <li><a href="/404" on:click={closeMenu}>HOME</a></li>
+    <li><a href="/404" on:click={closeMenu}>PROJECTEN</a></li>
+    <li><a href="/404" on:click={closeMenu}>SERVICE</a></li>
+    <li><a href="/404" on:click={closeMenu}>KENNISBANK</a></li>
+    <li><a href="/404" on:click={closeMenu}>PARTNERS</a></li>
+    <li><a href="/404" on:click={closeMenu}>OVER ONS</a></li>
     <li><a href="/contact" on:click={closeMenu}>CONTACT</a></li>
     <li><a href="/offerte" on:click={closeMenu}>OFFERTE</a></li>
   </ul>
