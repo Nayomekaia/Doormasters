@@ -69,13 +69,13 @@
   
   <style>
 	main {
-	  background-color: #ffffff;
+	  background-color: var(--color-light-blue);
 	}
   
 	/* INTRO SECTIE */
 	.intro-section {
 	  padding: 8rem 2rem;
-	  background-color: #ffffff;
+	  background-color: var(--color-light-blue);
 	  border-bottom: 1px solid #e5e5e5;
 	}
   
@@ -89,33 +89,28 @@
 	  font-weight: 600;
 	  line-height: 1.2;
 	  margin-bottom: 1.5rem;
-	  color: #0a0a0a;
+	  color: var(--color-blue-dark);
 	  letter-spacing: -0.02em;
 	}
   
 	.intro-content h3 {
 	  font-size: 1.5rem;
 	  margin-bottom: 2.5rem;
-	  color: #525252;
 	  font-weight: 400;
 	  line-height: 1.4;
-	}
-  
-	.intro-content p {
-	  font-size: 1.125rem;
-	  line-height: 1.8;
-	  color: #404040;
+	  color: var(--color-blue-dark);
 	}
   
 	/* STANDAARD CONTENT SECTIES */
 	.content-section {
 	  padding: 6rem 2rem;
-	  background-color: #ffffff;
+	  background-color: var(--color-white);
 	}
   
 	.content-wrapper {
 	  max-width: 800px;
 	  margin: 0 auto;
+	  color: var(--color-dark-blue);
 	}
   
 	.content-wrapper h2 {
@@ -123,28 +118,24 @@
 	  font-weight: 600;
 	  line-height: 1.2;
 	  margin-bottom: 1rem;
-	  color: #0a0a0a;
+	  color: var(--color-blue-dark);
 	  letter-spacing: -0.02em;
 	}
   
 	.content-wrapper h3 {
 	  font-size: 1.25rem;
 	  margin-bottom: 1.5rem;
-	  color: #525252;
-	  font-weight: 400;
+	  color: var(--color-blue-dark);
+	  font-weight: var(--fw-light);
 	  line-height: 1.4;
 	}
   
-	.content-wrapper p {
-	  font-size: 1.0625rem;
-	  line-height: 1.8;
-	  color: #404040;
-	}
   
 	/* KERNWAARDEN SECTIE */
 	.kernwaarden-section {
 	  padding: 8rem 2rem;
-	  background-color: #fafafa;
+	  background-color: var(--color-light-blue);
+	  font-family: var(--font-primary);
 	  border-top: 1px solid #e5e5e5;
 	  border-bottom: 1px solid #e5e5e5;
 	}
@@ -156,11 +147,8 @@
   
 	.kernwaarden-content h2 {
 	  font-size: 2.5rem;
-	  font-weight: 600;
-	  line-height: 1.2;
 	  margin-bottom: 4rem;
-	  color: #0a0a0a;
-	  letter-spacing: -0.02em;
+
 	}
   
 	.waarden-list {
@@ -186,21 +174,19 @@
 	  font-size: 1.375rem;
 	  font-weight: 600;
 	  margin-bottom: 0.75rem;
-	  color: #0a0a0a;
-	  letter-spacing: -0.01em;
+	  color: var(--color-blue-dark);
 	}
   
 	.waarden-list span {
 	  font-size: 1.0625rem;
-	  line-height: 1.7;
-	  color: #525252;
 	  display: block;
+	  color: var(--color-dark-blue);
 	}
   
 	/* CTA SECTIE */
 	.cta-section {
 	  padding: 8rem 2rem;
-	  background-color: #0a0a0a;
+	  background-color: var(--color-blue-dark);
 	  color: #ffffff;
 	}
   
@@ -211,18 +197,17 @@
 	}
   
 	.cta-content h2 {
-	  font-size: 2.5rem;
-	  font-weight: 600;
 	  line-height: 1.2;
 	  margin-bottom: 1.5rem;
-	  color: #ffffff;
 	  letter-spacing: -0.02em;
+	  color: var(--color-white);
+	  font-size: 2.5rem;
 	}
   
 	.cta-content p {
 	  font-size: 1.1875rem;
 	  line-height: 1.7;
-	  color: #d4d4d4;
+	  color: var(--color-white);
 	}
   
 	/* TABLET */
@@ -328,13 +313,8 @@
 	  }
   
 	  .cta-section {
-		background: #f5f5f5;
-		color: #0a0a0a;
+		background: var(--color-white);
 	  }
-  
-	  .cta-content h2,
-	  .cta-content p {
-		color: #0a0a0a;
-	  }
+
 	}
   </style>
