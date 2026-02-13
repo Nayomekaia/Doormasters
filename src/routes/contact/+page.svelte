@@ -27,13 +27,7 @@
 			<section class="info-section">
 				<h3>Telefonisch bereikbaar</h3>
 				<ul>
-					<li>Maandag van 08.00 tot 17.00</li>
-					<li>Dinsdag van 08.00 tot 17.00</li>
-					<li>Woensdag van 08.00 tot 17.00</li>
-					<li>Donderdag van 08.00 tot 17.00</li>
-					<li>Vrijdag van 08.00 tot 17.00</li>
-					<li>Zaterdag: gesloten</li>
-					<li>Zondag: gesloten</li>
+					<li>Maandag t/m vrijdag: 9:00 - 17:00</li>
 				</ul>
 			</section>
 
@@ -160,6 +154,10 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 1.25rem;
+	}
+
+	li {
+		font-family: var(--font-primary);
 	}
 
 	@media (min-width: 768px) {
