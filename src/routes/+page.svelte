@@ -1,7 +1,7 @@
 <script>
     import {Hero, place} from '$lib';
   import heroVideo from '$lib/assets/hero.gif';
-  import Servicecard from '$lib/components/ServiceCard.svelte';
+  import ServiceCard from '$lib/components/ServiceCard.svelte';
   export let data;
   let home = data.home;
 
@@ -184,7 +184,7 @@
 </section>
 {/if}
 
-<Servicecard />
+<ServiceCard />
 
 <style>
   /* HERO */
