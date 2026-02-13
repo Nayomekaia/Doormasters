@@ -184,9 +184,7 @@
 		margin-top: 2rem;
 		width: 100%;
 	}
-	.button-wrapper Button {
-		display: block;
-	}
+	
 
 	/* FORMULIER STYLING */
 	.formulier-sectie {
@@ -266,9 +264,7 @@
 
 	input[type='text'],
 	input[type='email'],
-	input[type='tel'],
-	input[type='number'],
-	select {
+	input[type='tel'] {
 		padding: 0.75rem;
 		border: 1px solid #ced4da;
 		border-radius: 4px;
@@ -279,10 +275,6 @@
 	input::placeholder {
 		color: #6c757d;
 	}
-	input:focus,
-	select:focus {
-		outline: none;
-		border-color: var(--color-blue-dark);
-		box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
-	}
+
+
 </style>
