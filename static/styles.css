@@ -1,0 +1,171 @@
+  :root {
+
+    /* =============== TYPOGRAPHY =============== */
+  
+  /* Font Families */
+  --font-primary: "Outfit", sans-serif;         
+  --font-secondary: "Sorts Mill Goudy", serif; 
+
+    /* Font Weight */
+  --fw-thin: 100;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+      /* Font style */
+  --fs-normal: normal;
+  --fs-italic: italic;
+  
+    /* Headings*/
+    --h1-size: clamp(1.875rem, 1.602rem + 1.1494vw, 2.5rem);
+    --h1-line-height: 1.2;
+    --h1-max-width: 60ch;
+  
+    --h2-size: clamp(1.5625rem, 1.3714rem + 0.8046vw, 2rem);
+    --h2-line-height: 1.3;
+    --h2-max-width: 65ch;
+  
+    --h3-size: clamp(1.375rem, 1.2658rem + 0.4598vw, 1.625rem);
+    --h3-line-height: 1.3;
+    --h3-max-width: 65ch;
+  
+    --h4-size: 23px;
+    --h4-line-height: 1.4;
+    --h4-max-width: 70ch;
+  
+    --h5-size: 20px;
+    --h5-line-height: 1.4;
+    --h5-max-width: 70ch;
+  
+    /* Paragraphs */
+    --p-l-size: 19px;
+    --p-l-line-height: 1.3;
+    --p-l-max-width: 70ch;
+  
+    --p-m-size: 18px;
+    --p-m-line-height: 1.3;
+    --p-m-max-width: 70ch;
+  
+    --p-s-size: 17px;
+    --p-s-line-height: 1.3;
+    --p-s-max-width: 70ch;
+  
+    --p-xs-size: 16px;
+    --p-xs-line-height: 1.3;
+    --p-xs-max-width: 70ch;
+
+    --p-xs-size: 14px;
+  
+  
+    /* =============== COLOR =============== */
+  
+     /* PRIMARY COLORS */
+     --color-white: #FAFAFA;
+     --color-light-blue: #F9FBFF;
+     --color-blue-dark: #1B3363;
+  
+
+     /* SECONDARY COLORS */
+     --color-highlight: #4284f7;
+
+     /* NEUTRAL COLORS */
+      --neutral-900: #29211F;
+      --neutral-800: #3A312E;
+      --neutral-700: #4F4542;
+      --neutral-600: #6A5F5B;
+      --neutral-500: #857A76;
+      --neutral-400: #A39A96;
+      --neutral-300: #C2BBB7;
+      --neutral-200: #E1DDDA;
+      --neutral-100: #F5F3F1;
+    
+    }
+    
+  
+  /* =============== GLOBAL STYLES =============== */
+  
+  main {
+    background-color: var(--color-white);
+  }
+  /* Focus state */
+  *:focus-visible {
+    outline: 3px dashed var(--color-highlight);
+    outline-offset: 4px;
+  }
+  
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--heading-font-weight);
+    color:  var(--color-blue-dark);
+    text-wrap: balance;
+    font-family: var(--font-primary);
+  }
+  
+  h1 {
+    font-size: var(--h1-size);
+    font-weight: var(--fw-bold);
+    line-height: var(--h1-line-height);
+    max-width: var(--h1-max-width);
+  }
+  
+  h2 {
+    font-size: var(--h2-size);
+    font-weight: var(--fw-medium);
+    line-height: var(--h2-line-height);
+    max-width: var(--h2-max-width);
+  }
+  
+  h3 {
+    font-size: var(--h3-size);
+    font-weight: var(--fw-bold);
+    line-height: var(--h3-line-height);
+    max-width: var(--h3-max-width);
+    text-transform: uppercase
+  }
+  
+  h4 {
+    font-size: var(--h4-size);
+    font-weight: var(--fw-semibold);
+    line-height: var(--h4-line-height);
+    max-width: var(--h4-max-width);
+  }
+  
+  h5 {
+    font-size: var(--h5-size);
+    font-weight: var( --fw-regular);
+    line-height: var(--h5-line-height);
+    max-width: var(--h5-max-width);
+  }
+  
+  /* Paragraphs */
+  p {
+    font-family: var(--font-primary);
+    font-weight: var(--fw-light);
+    font-size: var(--p-s-size);
+    line-height: var(--p-s-line-height);
+    max-width: var(--p-s-max-width);
+    color: var(--color-blue-dark);
+  }
+
+  a {
+    font-family: var(--font-secondary);
+  }
+  
+ .logo {
+  width: 140px;
+ }
+
+ li  a{
+  list-style: none;
+  text-decoration: none;
+ }

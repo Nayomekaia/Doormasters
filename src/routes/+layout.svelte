@@ -1,5 +1,6 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
+	import Topnav from '$lib/organisms/Top-nav.svelte';
 
 	let { children } = $props();
 </script>
