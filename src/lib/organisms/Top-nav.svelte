@@ -54,12 +54,12 @@
       <li><span class="separator">|</span></li>
       <li><a href="?lang=es">ES</a></li>
     </ul>
-    <li><a href="/" class:active={isActive('/')} on:click={closeMenu}>HOME</a></li>
-    <li><a href="/projecten" class:active={isActive('/projecten')} on:click={closeMenu}>PROJECTEN</a></li>
-    <li><a href="/service" class:active={isActive('/service')} on:click={closeMenu}>SERVICE</a></li>
-    <li><a href="/kennisbank" class:active={isActive('/kennisbank')} on:click={closeMenu}>KENNISBANK</a></li>
-    <li><a href="/partners" class:active={isActive('/partners')} on:click={closeMenu}>PARTNERS</a></li>
-    <li><a href="/over-ons" class:active={isActive('/over-ons')} on:click={closeMenu}>OVER ONS</a></li>
+    <li><a href="/k." class:active={isActive('/')} on:click={closeMenu}>HOME</a></li>
+    <li><a href="/projecte" class:active={isActive('/projecten')} on:click={closeMenu}>PROJECTEN</a></li>
+    <li><a href="/servic" class:active={isActive('/service')} on:click={closeMenu}>SERVICE</a></li>
+    <li><a href="/kennisban" class:active={isActive('/kennisbank')} on:click={closeMenu}>KENNISBANK</a></li>
+    <li><a href="/partner" class:active={isActive('/partners')} on:click={closeMenu}>PARTNERS</a></li>
+    <li><a href="/over-on" class:active={isActive('/over-ons')} on:click={closeMenu}>OVER ONS</a></li>
     <li><a href="/contact" class:active={isActive('/contact')} on:click={closeMenu}>CONTACT</a></li>
     <li><a href="/offerte" class:active={isActive('/offerte')} on:click={closeMenu}>OFFERTE</a></li>
   </ul>
