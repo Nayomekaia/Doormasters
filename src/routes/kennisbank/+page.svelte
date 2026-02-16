@@ -108,12 +108,12 @@
 	/* BLOG CARD */
 	.blog-card {
 	  background-color: var(--color-white);
-	  border: 1px solid #e5e5e5;
+	  border: 1px solid var(--neutral-300);
 	  border-radius: 0;
 	  overflow: hidden;
 	  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	  height: 100%;
-	  max-width: 600px;
+	  min-width: 350px;
 	  margin: 0 auto;
 	  width: 100%;
 	  position: relative;
@@ -222,7 +222,7 @@
 	  display: inline-block;
 	  text-transform: uppercase;
 	  color: var(--color-blue-dark);
-	  font-weight: 600;
+	  font-weight: var(--fw-semibold);
 	  font-size: 0.875rem;
 	  letter-spacing: 0.05em;
 	  transition: transform 0.3s ease;
@@ -236,6 +236,7 @@
 	  margin-bottom: 1rem;
 	  line-height: 1.3;
 	  transition: color 0.3s ease;
+	  color: var(--color-blue-dark);
 	}
 
 	.blog-card:hover .blog-title {
