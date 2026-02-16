@@ -2,19 +2,27 @@
 	import { Hero } from '$lib';
 	export let data;
 	let overons = data.overons;
-  </script>
+
+	// Filter om alleen content secties te tonen (niet de hero)
+	let contentSecties = overons.filter(item => item.section_key !== 'geen');
+	
+	// Haal de hero image op
+	let heroData = overons.find(item => item.title === 'hero');
+	let heroImage = heroData?.content || '';
+</script>
   
-  <svelte:head>
+<svelte:head>
 	<title>Over ons | Doormasters</title>
-  </svelte:head>
+</svelte:head>
   
-  <Hero
+<Hero
 	title="OVER ONS"
 	description="Word partner bij Doormasters en versterk uw aanbod in garagedeuren en deuroplossingen. Bij Doormasters is het mogelijk om partner te worden als dealer of installateur in de deurenbranche. Wij werken samen met professionals die kiezen voor kwaliteit, betrouwbaarheid en service, en bieden ondersteuning bij levering, montage en techniek. Samen bouwen we aan duurzame en hoogwaardige deurprojecten."
-  />
+	image={heroImage}
+/>
   
-  <main>
-	{#each overons as item, index (item.id)}
+<main>
+	{#each contentSecties as item, index (item.id)}
 	  {#if index === 0}
 		<!-- Intro sectie -->
 		<section class="intro-section">
@@ -65,9 +73,9 @@
 		</section>
 	  {/if}
 	{/each}
-  </main>
+</main>
   
-  <style>
+<style>
 	main {
 	  background-color: var(--color-light-blue);
 	}
@@ -412,4 +420,4 @@
 		color: var(--color-dark-blue);
 	  }
 	}
-  </style>
+</style>
