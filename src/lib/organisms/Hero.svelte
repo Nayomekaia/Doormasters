@@ -25,17 +25,17 @@
   
       <!-- RIGHT MEDIA -->
       {#if image !== "none"}
-        <section class="hero-media">
-          {#if image}
-            <img src={image} alt={alt} loading="lazy" />
-          {:else}
-            <img src={place} alt={alt || "placeholder"} loading="lazy" />
-          {/if}
-  
-          <slot name="media" />
-          <slot />
-        </section>
-      {/if}
+      <section class="hero-media">
+        {#if image}
+          <img src={image} alt={alt} loading="lazy" />
+        {:else}
+          <img src={place} alt={alt || "placeholder"} loading="lazy" />
+        {/if}
+        <slot name="media" />
+        <slot />
+      </section>
+    {/if}
+    
   
     </article>
   </section>
