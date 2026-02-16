@@ -77,22 +77,28 @@
   }
 
   .intro-content {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 5rem 2rem;
   }
 
   .intro-content h2 {
     margin-bottom: 1.5rem;
+    color: var(--color-blue-dark);
   }
 
   .intro-content h3 {
     margin-bottom: 2rem;
+    color: var(--color-blue-dark);
   }
 
   .intro-text {
     padding-top: 2rem;
     border-top: 1px solid var(--neutral-300);
+  }
+
+  .intro-text p {
+    color: var(--color-blue-dark);
   }
 
   /* SERVICE SECTIES */
@@ -124,7 +130,8 @@
     font-size: 8rem;
     line-height: 1;
     color: var(--color-blue-dark);
-    opacity: 0.15;
+    opacity: 1;
+    font-weight: var(--fw-bold);
   }
 
   .content-column {
@@ -132,11 +139,24 @@
     padding: 2rem;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .content-box {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 650px;
+    width: 100%;
+  }
+
+  .content-box h2 {
+    color: var(--color-blue-dark);
+  }
+
+  .content-box h3 {
+    color: var(--color-blue-dark);
+  }
+
+  .content-box p {
+    color: var(--color-blue-dark);
   }
 
   .image-column {
@@ -154,21 +174,24 @@
 
   h2 {
     margin-bottom: 1rem;
+    color: var(--color-blue-dark);
   }
 
   h3 {
     margin-bottom: 1.5rem;
+    color: var(--color-blue-dark);
   }
 
   p {
     line-height: 1.8;
+    color: var(--color-blue-dark);
   }
 
   /* TABLET: 2 kolommen */
   @media (min-width: 768px) {
     .intro-content {
       padding: 6rem 3rem;
-      max-width: 800px;
+      max-width: 1000px;
     }
 
     .section-container {
@@ -194,6 +217,10 @@
       padding: 4rem 3rem;
     }
 
+    .content-box {
+      max-width: 700px;
+    }
+
     .image-column {
       min-height: 500px;
     }
@@ -203,7 +230,7 @@
   @media (min-width: 1024px) {
     .intro-content {
       padding: 8rem 4rem;
-      max-width: 900px;
+      max-width: 1100px;
     }
 
     .section-container {
@@ -223,6 +250,10 @@
       padding: 5rem 4rem;
     }
 
+    .content-box {
+      max-width: 750px;
+    }
+
     .image-column {
       min-height: 600px;
     }
@@ -230,6 +261,10 @@
 
   /* GROTE SCHERMEN: meer ruimte */
   @media (min-width: 1400px) {
+    .intro-content {
+      max-width: 1200px;
+    }
+
     .section-container {
       grid-template-columns: 320px 1fr 1.2fr;
       min-height: 700px;
@@ -241,6 +276,10 @@
 
     .content-column {
       padding: 6rem 5rem;
+    }
+
+    .content-box {
+      max-width: 800px;
     }
 
     .image-column {
@@ -256,8 +295,9 @@
   }
 
   .closing-section h2 {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
+    color: var(--color-blue-dark);
   }
 
   @media (min-width: 768px) {
@@ -268,13 +308,14 @@
 
     .closing-section h2 {
       margin: 0 0 0 auto;
+      max-width: 900px;
     }
   }
 
   /* HIGH CONTRAST */
   @media (prefers-contrast: high) {
     .number-display {
-      opacity: 0.25;
+      opacity: 1;
     }
   }
 
