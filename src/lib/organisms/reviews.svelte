@@ -129,7 +129,7 @@
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 20px;
       padding: 40px;
-      background: linear-gradient(180deg, #D5E5F5 0%, #B8D4F0 100%);
+      background:var(--color-white);
       min-height: 100vh;
     }
   
