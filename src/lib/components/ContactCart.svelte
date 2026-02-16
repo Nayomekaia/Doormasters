@@ -10,9 +10,9 @@
 		<p class="email">
 			E: <a href="mailto:info@door-masters.nl">info@door-masters.nl</a>
 		</p>
-  </section>
+	</section>
 
-<section class="openingstijden">
+	<section class="openingstijden">
 		<p class="openingstijden-title">Openingstijden:</p>
 
 		<ul class="openingstijd">
@@ -27,7 +27,6 @@
 	<div class="circle-decoration"></div>
 </section>
 
-
 <style>
 	.contact-card {
 		position: relative;
@@ -36,7 +35,8 @@
 		padding: 2.5rem 2rem;
 		color: var(--color-white);
 		overflow: hidden;
-		max-width: 550px;
+		width: 100%;
+		max-width: 100%;
 	}
 
 	.circle-decoration {
@@ -76,13 +76,11 @@
 	}
 
 	.plaats {
-
 		margin-bottom: 1.5rem;
 	}
 
 	.telefoon,
 	.email {
-
 		margin-bottom: 0.5rem;
 	}
 
@@ -91,10 +89,10 @@
 		text-decoration: none;
 		transition: opacity 0.2s;
 		font-family: var(--primary-font);
+	}
 
-		&:hover {
-			opacity: 0.8;
-		}
+	.email a:hover {
+		opacity: 0.8;
 	}
 
 	.openingstijden-title {
@@ -102,15 +100,14 @@
 		font-weight: var(--fw-bold);
 		margin-top: 1.5rem;
 		margin-bottom: 0.75rem;
-		
 	}
 
 	.openingstijden li {
-	line-height: 1.6;
-	color: var(--color-white);
-	list-style: none;
-	font-family: var(--font-primary);
-}
+		line-height: 1.6;
+		color: var(--color-white);
+		list-style: none;
+		font-family: var(--font-primary);
+	}
 
 	.afspraak {
 		margin-top: 1rem;

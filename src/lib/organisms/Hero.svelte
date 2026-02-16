@@ -71,7 +71,7 @@
 
     .hero.no-image .hero-content {
       align-items: center;
-      text-align: center;
+      text-align: left;
       max-width: 800px;
     }
   
