@@ -12,16 +12,16 @@
         <a class="menu-button {$page.url.pathname === '/projecten' ? 'active' : ''}" href="/404">PROJECTEN</a>
       </li>
       <li>
-        <a class="menu-button {$page.url.pathname === '/service' ? 'active' : ''}" href="/404">SERVICE</a>
+        <a class="menu-button {$page.url.pathname === '/service' ? 'active' : ''}" href="/service">SERVICE</a>
       </li>
       <li>
-        <a class="menu-button {$page.url.pathname === '/kennisbank' ? 'active' : ''}" href="/404">KENNISBANK</a>
+        <a class="menu-button {$page.url.pathname === '/kennisbank' ? 'active' : ''}" href="/kennisbank">KENNISBANK</a>
       </li>
       <li>
-        <a class="menu-button {$page.url.pathname === '/partners' ? 'active' : ''}" href="/404">PARTNERS</a>
+        <a class="menu-button {$page.url.pathname === '/partners' ? 'active' : ''}" href="/partners">PARTNERS</a>
       </li>
       <li>
-        <a class="menu-button {$page.url.pathname === '/over-ons' ? 'active' : ''}" href="/404">OVER ONS</a>
+        <a class="menu-button {$page.url.pathname === '/over-ons' ? 'active' : ''}" href="/over-ons">OVER ONS</a>
       </li>
       <li>
         <a class="menu-button {$page.url.pathname === '/contact' ? 'active' : ''}" href="/contact">CONTACT</a>
