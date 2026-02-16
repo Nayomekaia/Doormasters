@@ -76,7 +76,9 @@
 	.intro-section {
 	  padding: 4rem 1.5rem;
 	  background-color: var(--color-light-blue);
-	  border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid var(--neutral-900);
+      box-shadow: 0 2px 5px var(--neutral-900);
+
 	}
   
 	.intro-content {
@@ -111,6 +113,8 @@
 	.content-section {
 	  padding: 4rem 1.5rem;
 	  background-color: var(--color-white);
+	  border-bottom: 1px solid var(--neutral-900);
+      box-shadow: 0 2px 5px var(--neutral-900);
 	}
   
 	.content-wrapper {
@@ -147,7 +151,8 @@
 	  background-color: var(--color-light-blue);
 	  font-family: var(--font-primary);
 	  border-top: 1px solid #e5e5e5;
-	  border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid var(--neutral-900);
+      box-shadow: 0 2px 5px var(--neutral-900);
 	}
   
 	.kernwaarden-content {
