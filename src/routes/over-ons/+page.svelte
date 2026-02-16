@@ -72,38 +72,44 @@
 	  background-color: var(--color-light-blue);
 	}
   
-	/* INTRO SECTIE */
+	/* INTRO SECTIE - Compacter */
 	.intro-section {
-	  padding: 8rem 2rem;
+	  padding: 4rem 1.5rem;
 	  background-color: var(--color-light-blue);
 	  border-bottom: 1px solid #e5e5e5;
 	}
   
 	.intro-content {
-	  max-width: 900px;
+	  max-width: 850px;
 	  margin: 0 auto;
 	}
   
 	.intro-content h2 {
-	  font-size: 3rem;
+	  font-size: 2.5rem;
 	  font-weight: 600;
-	  line-height: 1.2;
-	  margin-bottom: 1.5rem;
+	  line-height: 1.15;
+	  margin-bottom: 1rem;
 	  color: var(--color-blue-dark);
 	  letter-spacing: -0.02em;
 	}
   
 	.intro-content h3 {
-	  font-size: 1.5rem;
-	  margin-bottom: 2.5rem;
+	  font-size: 1.25rem;
+	  margin-bottom: 1.5rem;
 	  font-weight: 400;
 	  line-height: 1.4;
 	  color: var(--color-blue-dark);
 	}
+
+	.intro-content p {
+	  font-size: 1rem;
+	  line-height: 1.6;
+	  color: var(--color-dark-blue);
+	}
   
-	/* STANDAARD CONTENT SECTIES */
+	/* STANDAARD CONTENT SECTIES - Compacter */
 	.content-section {
-	  padding: 6rem 2rem;
+	  padding: 4rem 1.5rem;
 	  background-color: var(--color-white);
 	}
   
@@ -114,26 +120,30 @@
 	}
   
 	.content-wrapper h2 {
-	  font-size: 2.25rem;
+	  font-size: 2rem;
 	  font-weight: 600;
 	  line-height: 1.2;
-	  margin-bottom: 1rem;
+	  margin-bottom: 0.75rem;
 	  color: var(--color-blue-dark);
 	  letter-spacing: -0.02em;
 	}
   
 	.content-wrapper h3 {
-	  font-size: 1.25rem;
-	  margin-bottom: 1.5rem;
+	  font-size: 1.125rem;
+	  margin-bottom: 1rem;
 	  color: var(--color-blue-dark);
 	  font-weight: var(--fw-light);
 	  line-height: 1.4;
 	}
+
+	.content-wrapper p {
+	  font-size: 1rem;
+	  line-height: 1.6;
+	}
   
-  
-	/* KERNWAARDEN SECTIE */
+	/* KERNWAARDEN SECTIE - Strakker grid */
 	.kernwaarden-section {
-	  padding: 8rem 2rem;
+	  padding: 4rem 1.5rem;
 	  background-color: var(--color-light-blue);
 	  font-family: var(--font-primary);
 	  border-top: 1px solid #e5e5e5;
@@ -141,14 +151,15 @@
 	}
   
 	.kernwaarden-content {
-	  max-width: 1100px;
+	  max-width: 1000px;
 	  margin: 0 auto;
 	}
   
 	.kernwaarden-content h2 {
-	  font-size: 2.5rem;
-	  margin-bottom: 4rem;
-
+	  font-size: 2rem;
+	  margin-bottom: 2.5rem;
+	  font-weight: 600;
+	  color: var(--color-blue-dark);
 	}
   
 	.waarden-list {
@@ -161,7 +172,7 @@
 	}
   
 	.waarden-list li {
-	  padding: 2.5rem 0;
+	  padding: 1.75rem 0;
 	  border-bottom: 1px solid #e5e5e5;
 	}
   
@@ -171,21 +182,23 @@
   
 	.waarden-list strong {
 	  display: block;
-	  font-size: 1.375rem;
+	  font-size: 1.25rem;
 	  font-weight: 600;
-	  margin-bottom: 0.75rem;
+	  margin-bottom: 0.5rem;
 	  color: var(--color-blue-dark);
+	  line-height: 1.3;
 	}
   
 	.waarden-list span {
-	  font-size: 1.0625rem;
+	  font-size: 1rem;
 	  display: block;
 	  color: var(--color-dark-blue);
+	  line-height: 1.5;
 	}
   
-	/* CTA SECTIE */
+	/* CTA SECTIE - Compacter */
 	.cta-section {
-	  padding: 8rem 2rem;
+	  padding: 4rem 1.5rem;
 	  background-color: var(--color-blue-dark);
 	  color: #ffffff;
 	}
@@ -197,111 +210,183 @@
 	}
   
 	.cta-content h2 {
+	  font-size: 2rem;
 	  line-height: 1.2;
-	  margin-bottom: 1.5rem;
+	  margin-bottom: 1rem;
 	  letter-spacing: -0.02em;
 	  color: var(--color-white);
-	  font-size: 2.5rem;
+	  font-weight: 600;
 	}
   
 	.cta-content p {
-	  font-size: 1.1875rem;
-	  line-height: 1.7;
+	  font-size: 1.0625rem;
+	  line-height: 1.6;
 	  color: var(--color-white);
 	}
   
 	/* TABLET */
 	@media (min-width: 768px) {
 	  .intro-section {
-		padding: 10rem 3rem;
+		padding: 5rem 2rem;
 	  }
   
 	  .intro-content h2 {
-		font-size: 3.5rem;
+		font-size: 3rem;
 	  }
   
 	  .intro-content h3 {
-		font-size: 1.75rem;
+		font-size: 1.5rem;
+		margin-bottom: 1.75rem;
+	  }
+
+	  .intro-content p {
+		font-size: 1.0625rem;
 	  }
   
 	  .content-section {
-		padding: 8rem 3rem;
+		padding: 5rem 2rem;
 	  }
   
 	  .content-wrapper h2 {
-		font-size: 2.75rem;
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	  }
+
+	  .content-wrapper h3 {
+		font-size: 1.25rem;
+	  }
+
+	  .content-wrapper p {
+		font-size: 1.0625rem;
 	  }
   
 	  .waarden-list {
 		grid-template-columns: repeat(2, 1fr);
-		gap: 0 4rem;
+		gap: 0 3rem;
 	  }
   
 	  .waarden-list li {
-		padding: 3rem 0;
+		padding: 2rem 0;
+	  }
+
+	  .waarden-list strong {
+		font-size: 1.375rem;
+	  }
+
+	  .waarden-list span {
+		font-size: 1.0625rem;
 	  }
   
 	  .kernwaarden-section {
-		padding: 10rem 3rem;
+		padding: 5rem 2rem;
+	  }
+
+	  .kernwaarden-content h2 {
+		font-size: 2.5rem;
+		margin-bottom: 3rem;
 	  }
   
 	  .cta-section {
-		padding: 10rem 3rem;
+		padding: 5rem 2rem;
 	  }
   
 	  .cta-content h2 {
-		font-size: 3rem;
+		font-size: 2.5rem;
+		margin-bottom: 1.25rem;
+	  }
+
+	  .cta-content p {
+		font-size: 1.125rem;
 	  }
 	}
   
 	/* DESKTOP */
 	@media (min-width: 1024px) {
 	  .intro-section {
-		padding: 12rem 4rem;
+		padding: 6rem 3rem;
 	  }
   
 	  .intro-content {
-		max-width: 1000px;
-	  }
-  
-	  .intro-content h2 {
-		font-size: 4rem;
-	  }
-  
-	  .intro-content h3 {
-		font-size: 2rem;
-	  }
-  
-	  .content-section {
-		padding: 10rem 4rem;
-	  }
-  
-	  .content-wrapper {
 		max-width: 900px;
 	  }
   
+	  .intro-content h2 {
+		font-size: 3.5rem;
+		margin-bottom: 1.25rem;
+	  }
+  
+	  .intro-content h3 {
+		font-size: 1.75rem;
+		margin-bottom: 2rem;
+	  }
+
+	  .intro-content p {
+		font-size: 1.125rem;
+		line-height: 1.7;
+	  }
+  
+	  .content-section {
+		padding: 6rem 3rem;
+	  }
+  
+	  .content-wrapper {
+		max-width: 850px;
+	  }
+  
 	  .content-wrapper h2 {
-		font-size: 3rem;
+		font-size: 2.75rem;
+		margin-bottom: 1.25rem;
+	  }
+
+	  .content-wrapper h3 {
+		font-size: 1.375rem;
+		margin-bottom: 1.25rem;
+	  }
+
+	  .content-wrapper p {
+		font-size: 1.125rem;
+		line-height: 1.7;
 	  }
   
 	  .waarden-list {
-		gap: 0 5rem;
+		gap: 0 4rem;
 	  }
   
 	  .waarden-list li {
-		padding: 3.5rem 0;
+		padding: 2.25rem 0;
+	  }
+
+	  .waarden-list strong {
+		font-size: 1.5rem;
+		margin-bottom: 0.625rem;
+	  }
+
+	  .waarden-list span {
+		font-size: 1.125rem;
+		line-height: 1.6;
 	  }
   
 	  .kernwaarden-section {
-		padding: 12rem 4rem;
+		padding: 6rem 3rem;
+	  }
+
+	  .kernwaarden-content h2 {
+		font-size: 2.75rem;
+		margin-bottom: 3.5rem;
 	  }
   
 	  .cta-section {
-		padding: 12rem 4rem;
+		padding: 6rem 3rem;
 	  }
   
 	  .cta-content h2 {
-		font-size: 3.5rem;
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+	  }
+
+	  .cta-content p {
+		font-size: 1.1875rem;
+		line-height: 1.7;
 	  }
 	}
   
@@ -314,7 +399,12 @@
   
 	  .cta-section {
 		background: var(--color-white);
+		color: var(--color-dark-blue);
 	  }
 
+	  .cta-content h2,
+	  .cta-content p {
+		color: var(--color-dark-blue);
+	  }
 	}
   </style>
