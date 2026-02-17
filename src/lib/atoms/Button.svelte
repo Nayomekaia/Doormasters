@@ -1,12 +1,18 @@
 <script>
-  export let href = "#";
+  export let href = null; // null = button, anders link
   export let variant = "silver";
+  export let type = "button"; // "button" of "submit"
 </script>
 
-<a class="btn {variant}" href={href}>
-  <slot />
-</a>
-
+{#if href}
+  <a class="btn {variant}" href={href}>
+    <slot />
+  </a>
+{:else}
+  <button class="btn {variant}" type={type}>
+    <slot />
+  </button>
+{/if}
 <style>
 
 /* algemene button styling*/
