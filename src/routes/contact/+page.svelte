@@ -2,14 +2,25 @@
 	import { Hero } from '$lib';
 	import Button from '$lib/atoms/Button.svelte';
 	import { onMount } from 'svelte';
+	import { enhance } from "$app/forms";
 
 	let isVisible = false;
+	let status = "";
 
 	onMount(() => {
 		setTimeout(() => {
 			isVisible = true;
 		}, 100);
 	});
+
+	function formSubmit() {
+		status = "submitting";
+
+		return async ({ result, update }) => {
+			status = result.type === "success" ? "success" : "error";
+			await update();
+		};
+	}
 </script>
 
 <svelte:head>
@@ -23,7 +34,6 @@
 </Hero>
 
 <section class="page-wrapper" class:visible={isVisible}>
-	<!-- INFO KAART -->
 	<section class="info-card-wrapper animate-slide-left">
 		<section class="info-card">
 			<div class="card-header">
@@ -45,22 +55,24 @@
 
 			<div class="info-note">
 				<div>
-					<strong>Let op:</strong> In het weekend en op feestdagen zijn wij telefonisch niet bereikbaar. 
+					<strong>Let op:</strong>
+					In het weekend en op feestdagen zijn wij telefonisch niet bereikbaar.
 					U kunt wel altijd een bericht achterlaten via dit contactformulier.
 				</div>
 			</div>
 		</section>
 	</section>
 
-	<!-- FORMULIER -->
 	<section class="formulier-wrapper animate-slide-right">
-		<form class="contact-formulier" method="POST">
+
+		<!-- 🔹 enhance toegevoegd -->
+		<form class="contact-formulier" method="POST" use:enhance={formSubmit}>
+
 			<div class="form-header">
 				<h2>CONTACT FORMULIER</h2>
 				<div class="header-accent"></div>
 			</div>
 
-			<!-- PERSOONLIJKE GEGEVENS -->
 			<section class="formulier-sectie animate-fade-in" style="animation-delay: 0.2s;">
 				<div class="sectie-header">
 					<h3>Persoonlijke gegevens</h3>
@@ -69,54 +81,63 @@
 
 				<label for="naam" class="input-wrapper">
 					<p>Naam<span>*</span></p>
-					<input type="text" name="naam" id="naam" placeholder="Bijv. Jan" required />
+					<input type="text" name="naam" id="naam" required />
 				</label>
 
 				<label for="achternaam" class="input-wrapper">
 					<p>Achternaam<span>*</span></p>
-					<input type="text" name="achternaam" id="achternaam" placeholder="Bijv. van Huizen" required />
+					<input type="text" name="achternaam" id="achternaam" required />
 				</label>
 
 				<label for="telefoon" class="input-wrapper">
 					<p>Telefoonnummer<span>*</span></p>
-					<input type="tel" name="telefoon" id="telefoon" placeholder="Bijv. 0628763549" required />
+					<input type="tel" name="telefoon" id="telefoon" required />
 				</label>
 
 				<label for="email" class="input-wrapper">
 					<p>E-mailadres<span>*</span></p>
-					<input
-						type="email"
-						name="email"
-						id="email"
-						placeholder="Bijv. janvanhuizen@gmail.com"
-						required
-						pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-					/>
+					<input type="email" name="email" id="email" required />
 				</label>
 
 				<label for="adres" class="input-wrapper full-width">
 					<p>Adres<span>*</span></p>
-					<input type="text" name="adres" id="adres" placeholder="Bijv. Kerkstraat 80, 1234 AB Amsterdam" required />
+					<input type="text" name="adres" id="adres" required />
 				</label>
 
 				<label for="vraag" class="input-wrapper full-width">
 					<p>Vraag of probleem<span>*</span></p>
-					<textarea 
-						name="vraag" 
-						id="vraag" 
-						rows="6"
-						placeholder="Beschrijf hier uw vraag of probleem..."
-						required
-					></textarea>
+					<textarea name="vraag" id="vraag" rows="6" required></textarea>
 				</label>
 			</section>
 
 			<div class="button-wrapper animate-fade-in" style="animation-delay: 0.4s;">
-				<Button variant="silver">VERZENDEN</Button>
+				<!-- 🔹 submit type belangrijk -->
+				<Button type="submit" variant="silver">
+					VERZENDEN
+				</Button>
 			</div>
+
+			<!-- 🔹 status feedback -->
+			{#if status === "submitting"}
+				<p style="text-align:center">Bezig met verzenden...</p>
+			{/if}
+
+			{#if status === "success"}
+				<p style="text-align:center;color:green">✅ Bericht verzonden</p>
+			{/if}
+
+			{#if status === "error"}
+				<p style="text-align:center;color:red">❌ Verzenden mislukt</p>
+			{/if}
+
+		
+
+
+
 		</form>
 	</section>
 </section>
+
 
 <style>
 	/* ANIMATIES */
