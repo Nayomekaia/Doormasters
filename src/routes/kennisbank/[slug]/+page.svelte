@@ -1,6 +1,7 @@
 <script>
     export let data;
     let artikel = data.artikel;
+    import { Button } from '$lib';
   </script>
   
   <svelte:head>
@@ -55,11 +56,16 @@
       <section class="article-content">
         {@html artikel.content}
       </section>
+
+      <section class="article-body">
+        {@html artikel.body}
+      </section>
+  
   
       <!-- Article Footer -->
       <footer class="article-footer">
         <nav class="article-navigation">
-          <a href="/kennisbank" class="back-link">← Terug naar kennisbank</a>
+          <Button variant="outline" href="/kennisbank" class="back-link"> Terug naar kennisbank</Button>
         </nav>
   
         {#if artikel.tags && artikel.tags.length > 0}
@@ -119,7 +125,7 @@
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #1e3a8a;
+  
       font-weight: 600;
       margin-bottom: 1rem;
     }
@@ -129,13 +135,12 @@
       font-weight: 600;
       line-height: 1.2;
       margin-bottom: 1.5rem;
-      color: #0a0a0a;
+
     }
   
     .article-lead {
       font-size: 1.25rem;
       line-height: 1.6;
-      color: #525252;
       margin-bottom: 2rem;
     }
   
@@ -145,7 +150,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       font-size: 0.875rem;
-      color: #737373;
+      color: var(--color-dark-blue);
     }
   
     .meta-author,
@@ -156,21 +161,15 @@
   
     .meta-author {
       font-weight: 600;
-      color: #0a0a0a;
+
     }
   
-    .meta-date::before,
-    .meta-reading-time::before {
-      content: "•";
-      margin: 0 0.5rem;
-      color: #d4d4d4;
-    }
   
     /* ARTICLE CONTENT */
     .article-content {
       font-size: 1.0625rem;
       line-height: 1.8;
-      color: #404040;
+      color: var(--color-dark-blue);
     }
   
     .article-content :global(h2) {
@@ -179,7 +178,7 @@
       line-height: 1.3;
       margin-top: 3rem;
       margin-bottom: 1.5rem;
-      color: #0a0a0a;
+
     }
   
     .article-content :global(h3) {
@@ -188,7 +187,6 @@
       line-height: 1.4;
       margin-top: 2.5rem;
       margin-bottom: 1rem;
-      color: #0a0a0a;
     }
   
     .article-content :global(h4) {
