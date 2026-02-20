@@ -124,129 +124,159 @@
   </div>
   
   <style>
+  .reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 60px 80px;
+    background: var(--color-white);
+  }
+
+  .review-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .review-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .reviewer-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+
+  .reviewer-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .review-date {
+    font-size: 14px;
+    color: #5F6368;
+    margin: 0;
+  }
+
+  .google-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .rating {
+    display: flex;
+    gap: 4px;
+  }
+
+  .star {
+    width: 18px;
+    height: 18px;
+  }
+
+  .review-text {
+    font-size: 15px;
+    color: #202124;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ========================= */
+  /* 📱 Tablet */
+  /* ========================= */
+  @media (max-width: 1024px) {
     .reviews-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 20px;
       padding: 40px;
-      background:var(--color-white);
-      min-height: 100vh;
     }
-  
-    .review-card {
-      background: white;
-      border-radius: 16px;
+  }
+
+  /* ========================= */
+  /* 📱 Mobiel */
+  /* ========================= */
+  @media (max-width: 768px) {
+    .reviews-container {
+      grid-template-columns: 1fr;
       padding: 24px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      display: flex;
-      flex-direction: column;
       gap: 16px;
-      position: relative;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-  
-    .review-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+    .review-card {
+      padding: 20px;
     }
-  
-    .review-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      position: relative;
-    }
-  
-    .avatar-wrapper {
-      flex-shrink: 0;
-    }
-  
+
     .avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 500;
-      color: white;
-      overflow: hidden;
-    }
-  
-    .avatar-initial {
-      text-transform: uppercase;
-    }
-  
-    .avatar-default svg,
-    .avatar-image svg {
-      width: 100%;
-      height: 100%;
-    }
-  
-    .reviewer-info {
-      flex: 1;
-      min-width: 0;
-    }
-  
-    .name-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 2px;
-    }
-  
-    .reviewer-name {
+      width: 40px;
+      height: 40px;
       font-size: 16px;
-      font-weight: 500;
-      color: #202124;
-      margin: 0;
-      line-height: 1.4;
     }
-  
-    .verified-badge {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .review-date {
-      font-size: 14px;
-      color: #5F6368;
-      margin: 0;
-      line-height: 1.4;
-    }
-  
-    .google-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-  
-    .rating {
-      display: flex;
-      gap: 2px;
-    }
-  
-    .star {
-      width: 20px;
-      height: 20px;
-    }
-  
-    .review-text {
+
+    .reviewer-name {
       font-size: 15px;
-      color: #202124;
-      line-height: 1.5;
-      margin: 0;
     }
-  
-    @media (max-width: 768px) {
-      .reviews-container {
-        grid-template-columns: 1fr;
-        padding: 20px;
-      }
+
+    .review-date {
+      font-size: 13px;
     }
-  </style>
+
+    .review-text {
+      font-size: 14px;
+    }
+
+    .star {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  /* ========================= */
+  /* 📱 Kleine telefoons */
+  /* ========================= */
+  @media (max-width: 480px) {
+    .reviews-container {
+      padding: 16px;
+    }
+
+    .review-card {
+      padding: 16px;
+    }
+  }
+</style>
