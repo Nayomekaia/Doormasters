@@ -264,15 +264,6 @@
 	  color: var(--color-blue-dark);
 	}
   
-	.blog-cta {
-	  display: inline-block;
-	  color: var(--color-blue-dark);
-	  transition: transform 0.3s ease;
-	}
-  
-	.blog-card:hover .blog-cta {
-	  transform: translateX(4px);
-	}
   
 	/* TABLET */
 	@media (min-width: 768px) {
@@ -328,8 +319,5 @@
 		grid-template-columns: 1fr;
 	  }
   
-	  .blog-cta {
-		display: none;
-	  }
 	}
 </style>
