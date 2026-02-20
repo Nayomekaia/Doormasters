@@ -286,20 +286,7 @@
     .article-navigation {
       margin-bottom: 2rem;
     }
-  
-    .back-link {
-      display: inline-block;
-      font-size: 0.9375rem;
-      color: #1e3a8a;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.3s ease;
-    }
-  
-    .back-link:hover {
-      transform: translateX(-4px);
-    }
-  
+
     /* TAGS */
     .article-tags {
       margin-top: 2rem;
