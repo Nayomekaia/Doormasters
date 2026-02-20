@@ -1,7 +1,10 @@
 <script>
-  import { Hero, place } from '$lib';
+  import { Hero } from '$lib';
+  import Working from '$lib/assets/working.png';
   export let data;
+
   let service = data.service;
+
 </script>
 
 <svelte:head>
@@ -11,7 +14,9 @@
 <Hero
   title="SERVICE"
   description="Doormasters biedt professionele service, onderhoud en slimme oplossingen voor garagedeuren. Van advies en montage tot onderhoud en storingsoplossing, wij staan voor vakmanschap, betrouwbaarheid en snelle service."
+  image={Working}
 />
+
 
 <main>
   {#each service as item, index (item.id)}
@@ -49,13 +54,15 @@
           </div>
           
           <div class="image-column">
-            <img 
-              src={place}
-              alt={item.title}
-              loading="lazy"
-              width="800"
-              height="600"
-            />
+            {#if item.image}
+              <img 
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                width="800"
+                height="600"
+              />
+            {/if}
           </div>
         </div>
       </section>
@@ -66,6 +73,7 @@
     <h2>Bij Doormasters bouwen we voor de toekomst</h2>
   </section>
 </main>
+
 
 <style>
 
