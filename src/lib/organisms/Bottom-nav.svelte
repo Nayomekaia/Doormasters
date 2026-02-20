@@ -6,10 +6,10 @@
   <section class="bottom-nav">
     <ul>
       <li>
-        <a class="menu-button {$page.url.pathname === '/' ? 'active' : ''}" href="/404">HOME</a>
+        <a class="menu-button {$page.url.pathname === '/' ? 'active' : ''}" href="/">HOME</a>
       </li>
       <li>
-        <a class="menu-button {$page.url.pathname === '/projecten' ? 'active' : ''}" href="/404">PROJECTEN</a>
+        <a class="menu-button {$page.url.pathname === '/projecten' ? 'active' : ''}" href="/projecten">PROJECTEN</a>
       </li>
       <li>
         <a class="menu-button {$page.url.pathname === '/service' ? 'active' : ''}" href="/service">SERVICE</a>
