@@ -23,7 +23,7 @@ export const actions = {
 		try {
 			await resend.emails.send({
 				from: 'Doormasters <onboarding@resend.dev>',
-				to: 'nayomedoelwijt@gmail.com', // zet hier jouw email
+				to: 'info@door-masters.nl', 
 				subject: 'Nieuwe offerte aanvraag',
 				html: `
 					<p><strong>Naam:</strong> ${naam} ${achternaam}</p>
