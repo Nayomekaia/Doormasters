@@ -12,7 +12,7 @@
         <a class="menu-button {$page.url.pathname === '/projecten' ? 'active' : ''}" href="/projecten">PROJECTEN</a>
       </li>
       <li>
-        <a class="menu-button {$page.url.pathname === '/service' ? 'active' : ''}" href="/service">SERVICE</a>
+        <a class="menu-button {$page.url.pathname === '/werkwijze' ? 'active' : ''}" href="/werkwijze">WERKWIJZE</a>
       </li>
       <li>
         <a class="menu-button {$page.url.pathname === '/kennisbank' ? 'active' : ''}" href="/kennisbank">KENNISBANK</a>
