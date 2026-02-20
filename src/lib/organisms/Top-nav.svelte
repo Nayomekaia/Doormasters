@@ -54,8 +54,8 @@
       <li><span class="separator">|</span></li>
       <li><a href="?lang=es">ES</a></li>
     </ul>
-    <li><a href="/k." class:active={isActive('/')} on:click={closeMenu}>HOME</a></li>
-    <li><a href="/projecte" class:active={isActive('/projecten')} on:click={closeMenu}>PROJECTEN</a></li>
+    <li><a href="/" class:active={isActive('/')} on:click={closeMenu}>HOME</a></li>
+    <li><a href="/projecten" class:active={isActive('/projecten')} on:click={closeMenu}>PROJECTEN</a></li>
     <li><a href="/service" class:active={isActive('/service')} on:click={closeMenu}>SERVICE</a></li>
     <li><a href="/kennisbank" class:active={isActive('/kennisbank')} on:click={closeMenu}>KENNISBANK</a></li>
     <li><a href="/partners" class:active={isActive('/partners')} on:click={closeMenu}>PARTNERS</a></li>
