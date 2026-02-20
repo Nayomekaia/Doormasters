@@ -24,7 +24,7 @@
 
 <Hero
 	title="KENNISBANK"
-	description="Word partner bij Doormasters en versterk uw aanbod in garagedeuren en deuroplossingen. Bij Doormasters is het mogelijk om partner te worden als dealer of installateur in de deurenbranche. Wij werken samen met professionals die kiezen voor kwaliteit, betrouwbaarheid en service, en bieden ondersteuning bij levering, montage en techniek. Samen bouwen we aan duurzame en hoogwaardige deurprojecten."
+	description="In de kennisbank van Doormasters vindt u heldere informatie over garagedeuren, onderhoud, storingen en slimme bediening. Wij delen praktische kennis en professioneel advies om u te helpen bij het maken van de juiste keuze voor uw woning of bedrijfspand. Zo blijft uw garagedeur veilig, betrouwbaar en optimaal functioneren."
 	image={heroImage}
 />
 
@@ -70,7 +70,7 @@
 				  </div>
 				  
 				  <div class="blog-content-footer">
-					<Button variant="outline" href={`/kennisbank/${item.slug}`}>LEES MEER</Button>
+					<Button variant="outline" href={`/kennisbank/${item.slug}`}> Lees meer </Button>
 				  </div>
 				</div>
 			  </a>
@@ -246,7 +246,6 @@
 	.blog-excerpt {
 	  line-height: 1.6;
 	  margin-bottom: 0;
-	  color: var(--neutral-700);
 	  transition: color 0.3s ease;
 	}
 
