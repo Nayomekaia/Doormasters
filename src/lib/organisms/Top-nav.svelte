@@ -56,7 +56,7 @@
     </ul>
     <li><a href="/" class:active={isActive('/')} on:click={closeMenu}>HOME</a></li>
     <li><a href="/projecten" class:active={isActive('/projecten')} on:click={closeMenu}>PROJECTEN</a></li>
-    <li><a href="/service" class:active={isActive('/service')} on:click={closeMenu}>SERVICE</a></li>
+    <li><a href="/werkwijze" class:active={isActive('/werkwijze')} on:click={closeMenu}>WERKWIJZE</a></li>
     <li><a href="/kennisbank" class:active={isActive('/kennisbank')} on:click={closeMenu}>KENNISBANK</a></li>
     <li><a href="/partners" class:active={isActive('/partners')} on:click={closeMenu}>PARTNERS</a></li>
     <li><a href="/over-ons" class:active={isActive('/over-ons')} on:click={closeMenu}>OVER ONS</a></li>
