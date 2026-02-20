@@ -21,7 +21,7 @@
 <h2> {item.title}</h2>
   <p>{item.content}</p>
 </article>
-  <img src={place} alt="">
+  <img src={item.img} alt="">
 </section>
 {/each}
 
@@ -44,6 +44,27 @@
 		<p>Jaren ervaring</p>
 	  </div>
 	</section>
+  </section>
+
+  <section class="gallery">
+	<select>
+		<option value="all">Alle projecten</option>
+		<option value="industriedeuren">Industriedeuren</option>
+		<option value="garagedeuren">Garagedeuren</option>
+		<option value="andere">Roldeuren</option>
+		<option value="andere">Karteldeuren</option>
+	</select>
+
+	<section class="decription">
+		<p>
+			hier komt korte decription van elke deur type, en waarom mensen voor deze deur type moeten kiezen, en wat de voordelen zijn van deze deur type
+			</p>
+	</section>
+
+
+	<section class="gallery-grid">
+	
+  </section>
   </section>
   
   <Review />
