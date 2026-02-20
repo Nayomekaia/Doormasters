@@ -17,7 +17,7 @@
   
 <Hero
 	title="OVER ONS"
-	description="Word partner bij Doormasters en versterk uw aanbod in garagedeuren en deuroplossingen. Bij Doormasters is het mogelijk om partner te worden als dealer of installateur in de deurenbranche. Wij werken samen met professionals die kiezen voor kwaliteit, betrouwbaarheid en service, en bieden ondersteuning bij levering, montage en techniek. Samen bouwen we aan duurzame en hoogwaardige deurprojecten."
+	description="Doormasters is specialist in garagedeuren voor particulieren, bedrijven en industriële toepassingen. Met focus op vakmanschap, betrouwbaarheid en service leveren wij duurzame oplossingen op maat. Van advies en montage tot onderhoud en storingsoplossing staan kwaliteit, veiligheid en continuïteit centraal in alles wat wij doen."
 	image={heroImage}
 />
   
