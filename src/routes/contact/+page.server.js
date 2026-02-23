@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { Resend } from "resend";
 import { RESEND_API_KEY } from '$env/static/private';
 import { fail } from "@sveltejs/kit";
