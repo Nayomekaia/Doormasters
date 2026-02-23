@@ -34,7 +34,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/projecten">Projecten</a></li>
-          <li><a href="/service">Service</a></li>
+          <li><a href="/werkwijze">Werkwijze</a></li>
           <li><a href="/kennisbank">Kennisbank</a></li>
           <li><a href="/partners">Partners</a></li>
           <li><a href="/over-ons">Over ons</a></li>
@@ -47,7 +47,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/projecten">Projecten</a></li>
-          <li><a href="/service">Service</a></li>
+          <li><a href="/werkwijze">Werkwijze</a></li>
           <li><a href="/kennisbank">Kennisbank</a></li>
           <li><a href="/partners">Partners</a></li>
           <li><a href="/over-ons">Over ons</a></li>
