@@ -28,11 +28,11 @@
 
   <ul class="top-right">
     <li><a href="?lang=nl" class="active">NL</a></li>
-    <li><span class="separator">|</span></li>
+   <!--    <li><span class="separator">|</span></li>
     <li><a href="?lang=en">EN</a></li>
     <li><span class="separator">|</span></li>
-    <li><a href="?lang=es">ES</a></li>
-  </ul>
+    <li><a href="?lang=es">ES</a></li>-->
+  </ul> 
 
   <!-- Hamburger Menu -->
   <button class="hamburger" on:click={toggleMenu} aria-label="Open menu">
@@ -49,10 +49,10 @@
   <ul class="overlay-menu">
     <ul class="lang">
       <li><a href="?lang=nl" class="active">NL</a></li>
-      <li><span class="separator">|</span></li>
+     <!-- <li><span class="separator">|</span></li>
       <li><a href="?lang=en">EN</a></li>
       <li><span class="separator">|</span></li>
-      <li><a href="?lang=es">ES</a></li>
+      <li><a href="?lang=es">ES</a></li>-->
     </ul>
     <li><a href="/" class:active={isActive('/')} on:click={closeMenu}>HOME</a></li>
     <li><a href="/projecten" class:active={isActive('/projecten')} on:click={closeMenu}>PROJECTEN</a></li>
