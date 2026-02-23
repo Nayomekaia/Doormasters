@@ -12,7 +12,7 @@
 </svelte:head>
 
 <Hero
-  title="SERVICE"
+  title="ONZE AANPAK"
   description="Doormasters biedt professionele service, onderhoud en slimme oplossingen voor garagedeuren. Van advies en montage tot onderhoud en storingsoplossing, wij staan voor vakmanschap, betrouwbaarheid en snelle service."
   image={Working}
 />
