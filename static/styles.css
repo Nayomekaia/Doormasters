@@ -21,6 +21,7 @@
   --fs-italic: italic;
   
     /* Headings*/
+
     --h1-size: clamp(1.875rem, 1.602rem + 1.1494vw, 2.5rem);
     --h1-line-height: 1.2;
     --h1-max-width: 60ch;
