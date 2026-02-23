@@ -389,11 +389,7 @@ a {
   color: #f6f6f6;
 }
 
-.lang .separator {
-  color: rgba(255, 255, 255, 0.5);
-  display: flex;
-  align-items: center;
-}
+
 
 /* ACCESSIBILITY */
 
