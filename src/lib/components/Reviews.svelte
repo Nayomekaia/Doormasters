@@ -15,25 +15,24 @@
 </section>
 
 <style>
-	/* ── Mobile first (basis) ── */
-
+	/* ── Reset ── */
 	.reviews-component {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-		padding: 0 1rem 0;
-        background-color: var(--color-white);
+		margin: 0;
+		padding: 2rem 1rem 2rem; /* kleine padding rondom */
+		background-color: var(--color-white);
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	h2 {
 		font-size: 1.1rem;
 		text-align: center;
 		max-width: 100%;
-		margin-top: 2rem;
-		margin-bottom: 2rem;
+		margin: 0 0 1.5rem 0; /* alleen kleine bottom margin */
 	}
 
 	.reviews {
@@ -48,14 +47,14 @@
 		width: 100%;
 		max-width: 250px;
 		border-radius: 10px;
-		border: solid 1px var(--neutral-200);
+		border: 1px solid var(--neutral-200);
 	}
 
-	/* ── Tablet (640px+) ── */
+	/* Tablet */
 	@media (min-width: 640px) {
 		h2 {
 			font-size: 1.3rem;
-			margin-bottom: 3rem;
+			margin-bottom: 2rem;
 		}
 
 		.reviews {
@@ -70,18 +69,11 @@
 		}
 	}
 
-	/* ── Desktop (1024px+) ── */
+	/* Desktop */
 	@media (min-width: 1024px) {
-		.reviews-component {
-			margin-bottom: 5rem;
-			padding: 0;
-		}
-
 		h2 {
-			font-size: 1.6rem;
-			max-width: 900px;
-			margin-top: 5rem;
-			margin-bottom: 9rem;
+			font-size: 1.5rem;
+			margin-bottom: 2rem; /* geen gigantische 9rem meer */
 		}
 
 		.reviews {
