@@ -49,7 +49,7 @@
 {#if deuren.length > 0}
 <section class="deuren-section">
   <header class="deuren-header">
-    <span class="label">{deuren[0].subtitle}</span>
+    <span class="label-1">{deuren[0].subtitle}</span>
   </header>
   
   <ul class="deuren-grid">
@@ -130,28 +130,150 @@
 </section>
 {/if}
 
+<!--faq komt hier -->
 
-{#if video}
-  <div class="video-wrapper">
-    <iframe
-      width="100%"
-      height="500"
-      src="{video.video}?autoplay=1&mute=1&rel=0&controls=1"
-      title="{video.title}"
-      allowfullscreen
-    ></iframe>
+{#if projecten}
+<section class="projecten-section">
+  <article class="projecten-content">
+    <h2>{projecten.title}</h2>
+    <p>{@html projecten.body.replace(/\n/g, '<br>')}</p>
+
+    <div class="projecten-images" bind:this={container}>
+      {#each projecten.image.split('\n').filter(url => url.trim() !== '') as imgUrl}
+        <div class="projecten-image-wrapper">
+          <img src={imgUrl.trim()} alt={projecten.title} loading="lazy">
+        </div>
+      {/each}
+    </div>
+  </article>
+
+  <div class="projecten-footer">
+    <p>Bekijk alle projecten en laat je inspireren</p>
+    <Button href="/projecten" variant="outline">Bekijk meer</Button>
   </div>
+</section>
 {/if}
 
-<img class="image-last" src={Ja} alt="ja">
+
+
+{#if video}
+<div class="video-wrapper">
+  <iframe
+    src="{video.video}?autoplay=1&mute=1&rel=0&controls=1"
+    title="{video.title}"
+    allowfullscreen
+  ></iframe>
+</div>
+{/if}
+
 
 <Reviews />
+
 
 <style>
 
 .button-wrapper {
 margin-top: 3rem;  
 } 
+
+.label-1 {
+	display: block;
+	font-family: var(--font-primary);
+	font-size: 0.7rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--color-blue-dark);
+	margin-bottom: 1rem;
+	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.projecten-section {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.projecten-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.projecten-content p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  text-align: left;
+  margin-bottom: 5rem;
+
+}
+
+/* Slider container */
+.projecten-images {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Hide scrollbar in Webkit */
+.projecten-images::-webkit-scrollbar {
+  display: none;
+}
+.projecten-images {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Each image wrapper */
+.projecten-image-wrapper {
+  flex: 0 0 auto; /* don't shrink, don't grow */
+  width: 300px; /* desktop size */
+  scroll-snap-align: start;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.projecten-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Hover effect */
+.projecten-image-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.projecten-footer {
+  display: flex;
+  flex-direction: column; /* tekst boven de button */
+  align-items: center;    /* alles horizontaal centreren */
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;              /* ruimte tussen tekst en button */
+}
+
+.projecten-footer p {
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .projecten-image-wrapper {
+    width: 200px; /* smaller on mobile */
+  }
+}
+
+
 
 /* ══════════════════════════════════════════
    HERO
@@ -229,9 +351,9 @@ margin-top: 3rem;
 .intro-section {
   background-color: var(--color-white);
   display: flex;
-  justify-content: center; /* horizontaal centreren */
-  align-items: center;     /* verticale centrering content */
-  padding: 4rem 2.5rem;   /* mobile: kleinere padding */
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2.5rem;
   text-align: left;
   margin-bottom: -8rem;
 }
@@ -240,7 +362,6 @@ margin-top: 3rem;
   width: 100%;
 }
 
-/* Kop en paragraaf spacing */
 .intro-content h2,
 .intro-content p {
   margin: 0;
@@ -251,13 +372,10 @@ margin-top: 3rem;
 }
 
 .intro-content p {
-  margin-bottom: 2rem; /* mobile: minder ruimte onder p */
+  margin-bottom: 2rem;
   max-width: 100%;
 }
 
-/* ==========================
-   Tablet en Desktop
-========================== */
 @media (min-width: 600px) {
   .intro-section {
     padding: 5rem 2rem;
@@ -282,9 +400,6 @@ margin-top: 3rem;
    DEUREN GRID
 ══════════════════════════════════════════ */
 
-/* ==========================
-   Labels
-========================== */
 .label {
   display: block;
   font-family: var(--font-primary);
@@ -296,37 +411,28 @@ margin-top: 3rem;
   max-width: 300px;
 }
 
-/* ==========================
-   Deuren Section
-========================== */
 .deuren-section {
-  padding: 6rem 1.5rem 0; /* mobile-first: kleinere padding */
+  padding: 6rem 1.5rem 0;
   background-color: var(--color-white);
+  margin-bottom: 3rem;
 }
 
-/* Header */
 .deuren-header {
   max-width: 1300px;
   margin: 0 auto 2.5rem;
   text-align: center;
 }
 
-/* ==========================
-   Grid - Mobile First
-========================== */
 .deuren-grid {
   list-style: none;
   padding: 0;
   margin: 0 auto;
   max-width: 1300px;
   display: grid;
-  grid-template-columns: 1fr; /* mobiel: 1 kolom */
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-/* ==========================
-   Deur Card
-========================== */
 .deur-card {
   background: var(--color-white);
   overflow: hidden;
@@ -341,7 +447,6 @@ margin-top: 3rem;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
 }
 
-/* Image */
 .deur-image {
   margin: 0;
   aspect-ratio: 16 / 10;
@@ -361,9 +466,8 @@ margin-top: 3rem;
   transform: scale(1.04);
 }
 
-/* Content */
 .deur-content {
-  padding: 1.5rem 1.5rem 2rem; /* kleiner op mobiel */
+  padding: 1.5rem 1.5rem 2rem;
 }
 
 .deur-content h4 {
@@ -377,15 +481,12 @@ margin-top: 3rem;
   font-size: 0.85rem;
 }
 
-/* ==========================
-   Tablet (≥600px)
-========================== */
 @media (min-width: 600px) {
   .deuren-section {
     padding: 10rem 2rem 0;
   }
   .deuren-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
   .deur-content {
@@ -399,15 +500,12 @@ margin-top: 3rem;
   }
 }
 
-/* ==========================
-   Desktop (≥1024px)
-========================== */
 @media (min-width: 1024px) {
   .deuren-section {
     padding: 15rem 2rem 0;
   }
   .deuren-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 kolommen */
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
   }
   .deur-content h4 {
@@ -426,10 +524,9 @@ margin-top: 3rem;
   grid-template-columns: 1fr;
   max-width: 100%;
   background: var(--color-white);
-  /* Ruimte rondom sectie */
-  margin: 5rem 0;
-  /* Subtiele scheiding */
+  margin: 0; /* ← was: 5rem 0 */
   border-top: 1px solid #efefed;
+  
 }
 
 .industrieel-content {
@@ -439,6 +536,7 @@ margin-top: 3rem;
   justify-content: center;
   max-width: 600px;
   margin: 0 auto;
+  margin-bottom: 3rem;
 }
 
 .industrieel-content h3 {
@@ -472,13 +570,10 @@ margin-top: 3rem;
   background-color: var(--color-light-blue);
   text-align: left;
   box-shadow:
-    inset 0 10px 20px rgba(0,0,0,0.15),   /* inner shadow boven */
-    inset 0 -10px 20px rgba(0,0,0,0.15);  /* inner shadow onder */
+    inset 0 10px 20px rgba(0,0,0,0.15),
+    inset 0 -10px 20px rgba(0,0,0,0.15);
 }
 
-/* ==========================
-   Foto
-========================== */
 .perfecte-deur-image-full {
   width: 100%;  
   overflow: hidden;
@@ -490,28 +585,15 @@ margin-top: 3rem;
   height: auto;
   display: block;
   object-fit: cover;
-  /* Animatie toevoegen */
   animation: slow-zoom 10s ease-in-out infinite alternate;
 }
 
-/* ==========================
-   Keyframes: langzaam in- en uitzoomen
-========================== */
 @keyframes slow-zoom {
-  0% {
-    transform: scale(1);     /* start normale grootte */
-  }
-  50% {
-    transform: scale(1.05);  /* licht inzoomen */
-  }
-  100% {
-    transform: scale(1);     /* terug naar normaal */
-  }
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
-/* ==========================
-   Tekst
-========================== */
 .perfecte-deur-text {
   max-width: 700px;
 }
@@ -524,9 +606,6 @@ margin-top: 3rem;
   margin-bottom: 2rem;
 }
 
-/* ==========================
-   Responsive
-========================== */
 @media (min-width: 600px) {
   .perfecte-deur-section {
     padding: 4rem 2rem;
@@ -552,8 +631,7 @@ margin-top: 3rem;
   display: grid;
   grid-template-columns: 1fr;
   background: #fff;
-  /* Ruimte rondom sectie */
-  margin: 5rem 0;
+  margin: 0; /* ← was: 5rem 0 */
   border-top: 1px solid #efefed;
   border-bottom: 1px solid #efefed;
 }
@@ -586,32 +664,32 @@ margin-top: 3rem;
 }
 
 /* ══════════════════════════════════════════
-   werkwijzw
-══════════════════════════════════════════ */
-/* ══════════════════════════════════════════
-   WERKWIJZE — zelfde styling als INDUSTRIEEL
+   WERKWIJZE
 ══════════════════════════════════════════ */
 .werkwijze-section {
   display: grid;
   grid-template-columns: 1fr;
   max-width: 100%;
   background: var(--color-white);
-  margin: 5rem 0;
+  margin: 0; /* ← was: 5rem 0 */
   border-top: 1px solid #efefed;
 }
 
 .werkwijze-content {
-  padding: 5rem 2rem 0;   /* bottom = 0 zodat onderkant strak */
+  padding: 5rem 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
   margin: 0 auto;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #efefed;
 }
 
 .werkwijze-content h3 {
   margin-bottom: 1.5rem;
   text-transform: uppercase;
+
 }
 
 .werkwijze-image {
@@ -628,11 +706,10 @@ margin-top: 3rem;
   display: block;
 }
 
-/* RESPONSIVE — TABLET (768px+) */
 @media (min-width: 768px) {
   .werkwijze-section {
-    grid-template-columns: 1fr 1fr;  /* content + image */
-    margin: 6rem 0;
+    grid-template-columns: 1fr 1fr;
+    margin: 0; /* ← was: 6rem 0 */
   }
 
   .werkwijze-content {
@@ -642,7 +719,6 @@ margin-top: 3rem;
   }
 }
 
-/* RESPONSIVE — DESKTOP (1024px+) */
 @media (min-width: 1024px) {
   .werkwijze-content {
     padding: 7rem 5rem;
@@ -653,11 +729,10 @@ margin-top: 3rem;
   }
 
   .werkwijze-section {
-    margin: 8rem 0;
+    margin: 0; /* ← was: 8rem 0 */
   }
 }
 
-/* RESPONSIVE — LARGE (1440px+) */
 @media (min-width: 1440px) {
   .werkwijze-content {
     padding: 8rem 6rem 0;
@@ -671,33 +746,48 @@ margin-top: 3rem;
   }
 }
 
-
 /* ══════════════════════════════════════════
    VIDEO
 ══════════════════════════════════════════ */
 .video-wrapper {
-  margin: 5rem auto;
-  max-width: 1200px;
-  padding: 0 2rem;
+  position: relative;
+  width: 100vw;        /* volledige breedte van het scherm */
+  height: 56.25vw;     /* aspect ratio 16:9 mobile-first */
+  max-height: 100vh;   /* voorkomt dat het groter wordt dan schermhoogte */
+  overflow: hidden;
 }
 
 .video-wrapper iframe {
-  display: block;
-  width: 100%;
-  border-radius: 3px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.77%;  /* 16/9 ratio */
+  height: 100%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  object-fit: cover;  /* video vult de container volledig */
 }
 
+/* ===== Desktop ===== */
+@media (min-width: 768px) {
+  .video-wrapper {
+    height: 60vh;  /* minder hoog op tablet/desktop */
+  }
+}
+
+@media (min-width: 1024px) {
+  .video-wrapper {
+    height: 70vh;  /* past mooi op desktop */
+  }
+}
 /* ══════════════════════════════════════════
    RESPONSIVE — TABLET (768px+)
 ══════════════════════════════════════════ */
 @media (min-width: 768px) {
-
-
   .industrieel-section {
     grid-template-columns: 1fr 1fr;
     max-width: 100%;
-    margin: 6rem 0;
+    margin: 0; /* ← was: 6rem 0 */
   }
 
   .industrieel-content {
@@ -708,7 +798,7 @@ margin-top: 3rem;
 
   .service-section {
     grid-template-columns: 1fr 1fr;
-    margin: 6rem 0;
+    margin: 0; /* ← was: 6rem 0 */
   }
 
   .service-content {
@@ -726,7 +816,6 @@ margin-top: 3rem;
    RESPONSIVE — DESKTOP (1024px+)
 ══════════════════════════════════════════ */
 @media (min-width: 1024px) {
-
   .industrieel-content,
   .service-content {
     padding: 7rem 5rem;
@@ -737,12 +826,9 @@ margin-top: 3rem;
     min-height: 640px;
   }
 
- 
-
-
   .industrieel-section,
   .service-section {
-    margin: 8rem 0;
+    margin: 0; /* ← was: 8rem 0 */
   }
 
   .video-wrapper {
@@ -766,7 +852,7 @@ margin-top: 3rem;
 @media (min-width: 1440px) {
   .industrieel-content,
   .service-content {
-    padding: 8rem 6rem 0;
+    padding: 1rem 6rem 0;
     max-width: 680px;
   }
 
