@@ -1,5 +1,5 @@
 <script>
-	import { Hero } from '$lib';
+	import { Hero, Button } from '$lib';
 	import Contact from '$lib/components/ContactCart.svelte';
 	import { onMount } from 'svelte';
 	import { enhance } from '$app/forms';
@@ -56,9 +56,10 @@
         <button type="button" on:click={() => formState = 'idle'}>Idle</button>
         <button type="button" on:click={() => formState = 'loading'}>Loading</button>
         <button type="button" on:click={() => formState = 'success'}>Success</button>
-        <button type="button" on:click={() => { formState = 'error'; errorMessage = 'Testfout!' }}>Error</button>
+        <button type="button" on:click={() => { formState = 'error'; errorMessage = 'Er is iets fout gegaan probeer het later opnieuw!' }}>Error</button>
     </div>
 {/if}
+
 <section class="page-wrapper" class:visible={isVisible}>
 	<section class="contact-wrapper animate-slide-left">
 		<Contact />
@@ -76,7 +77,7 @@
 			{#if formState === 'success'}
 				<div class="state-banner success-banner" role="alert" aria-live="polite">
 					<div class="state-icon-wrap success-icon-wrap">
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="0.875rem" height="0.875rem">
 							<circle cx="12" cy="12" r="10"/>
 							<path d="M8 12l3 3 5-5"/>
 						</svg>
@@ -90,22 +91,21 @@
 				<div class="success-body">
 					<div class="success-checklist">
 						<div class="check-item">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="0.875rem" height="0.875rem"><polyline points="20 6 9 17 4 12"/></svg>
 							<span>Aanvraag ontvangen</span>
 						</div>
 						<div class="check-item">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="0.875rem" height="0.875rem"><polyline points="20 6 9 17 4 12"/></svg>
 							<span>Bevestigingsmail onderweg</span>
 						</div>
 						<div class="check-item pending">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="0.875rem" height="0.875rem"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
 							<span>We nemen binnen 1-2 werkdagen contact op</span>
 						</div>
 					</div>
-					<button type="button" class="new-form-btn" on:click={resetForm}>
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+					<Button variant="silver" type="button" class="new-form-btn" on:click={resetForm}>
 						Nieuwe aanvraag indienen
-					</button>
+					</Button>
 				</div>
 			{/if}
 
@@ -113,7 +113,7 @@
 			{#if formState === 'error'}
 				<div class="state-banner error-banner" role="alert" aria-live="assertive">
 					<div class="state-icon-wrap error-icon-wrap">
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="0.875rem" height="0.875rem">
 							<circle cx="12" cy="12" r="10"/>
 							<line x1="12" y1="8" x2="12" y2="12"/>
 							<line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -124,14 +124,14 @@
 						<p>{errorMessage}</p>
 					</div>
 					<button type="button" class="dismiss-btn" on:click={() => formState = 'idle'} aria-label="Sluiten">
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="0.75rem" height="0.75rem">
 							<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
 						</svg>
 					</button>
 				</div>
 			{/if}
 
-			<!-- FORM FIELDS (hidden on success) -->
+			<!-- FORM FIELDS -->
 			{#if formState !== 'success'}
 				<div class="form-body" class:form-loading={formState === 'loading'}>
 
@@ -211,17 +211,14 @@
 						</fieldset>
 
 						<div class="button-wrapper animate-fade-in" style="animation-delay: 0.9s;">
-							<button type="submit" class="submit-btn" disabled={formState === 'loading'} aria-busy={formState === 'loading'}>
+							<Button variant="silver" type="submit" class="submit-btn" disabled={formState === 'loading'} aria-busy={formState === 'loading'}>
 								{#if formState === 'loading'}
 									<span class="btn-spinner" aria-hidden="true"></span>
 									Versturen...
 								{:else}
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-									</svg>
 									VERSTUREN
 								{/if}
-							</button>
+							</Button>
 						</div>
 					</section>
 
@@ -231,6 +228,7 @@
 		</form>
 	</section>
 </section>
+
 
 <style>
 	/* ANIMATIES */
@@ -309,10 +307,10 @@
 	.new-form-btn {
 		display:flex; align-items:center; gap:.5rem;
 		background:white; border:2px solid var(--color-blue-dark); color:var(--color-blue-dark);
-		padding:.75rem 1.75rem; border-radius:8px; font-size:.9375rem; font-weight:600;
+		padding:.75rem 1.75rem; border-radius:8px; font-size:.1rem; font-weight:600;
 		cursor:pointer; transition:all .2s ease;
 	}
-	.new-form-btn svg { width:1rem; height:1rem; }
+	.new-form-btn svg { width:0.5rem; height:1rem; }
 	.new-form-btn:hover { background:var(--color-blue-dark); color:white; transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.15); }
 
 	/* LOADING */
