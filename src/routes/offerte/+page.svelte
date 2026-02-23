@@ -304,15 +304,6 @@
 	.check-item.pending { color:#64748b; }
 	.check-item.pending svg { color:#94a3b8; }
 
-	.new-form-btn {
-		display:flex; align-items:center; gap:.5rem;
-		background:white; border:2px solid var(--color-blue-dark); color:var(--color-blue-dark);
-		padding:.75rem 1.75rem; border-radius:8px; font-size:.1rem; font-weight:600;
-		cursor:pointer; transition:all .2s ease;
-	}
-	.new-form-btn svg { width:0.5rem; height:1rem; }
-	.new-form-btn:hover { background:var(--color-blue-dark); color:white; transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.15); }
-
 	/* LOADING */
 	.form-body { position:relative; }
 	.form-loading { pointer-events:none; }
@@ -330,18 +321,6 @@
 		border:3px solid #e1e8ed; border-top-color:var(--color-blue-dark);
 		border-radius:50%; animation:spin .8s linear infinite;
 	}
-
-	/* SUBMIT BUTTON */
-	.submit-btn {
-		display:flex; align-items:center; justify-content:center; gap:.625rem;
-		background:linear-gradient(135deg,var(--color-blue-dark)0%,#1e3a5f 100%);
-		color:white; border:none; padding:1rem 3rem; border-radius:8px;
-		font-size:1rem; font-weight:700; letter-spacing:.5px; cursor:pointer;
-		transition:all .3s ease; box-shadow:0 4px 12px rgba(0,0,0,.2); min-width:200px;
-	}
-	.submit-btn svg { width:1.125rem; height:1.125rem; }
-	.submit-btn:hover:not(:disabled) { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,.25); }
-	.submit-btn:disabled { cursor:not-allowed; opacity:.75; }
 
 	.btn-spinner {
 		width:1.125rem; height:1.125rem;
