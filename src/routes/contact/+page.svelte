@@ -1,5 +1,5 @@
 <script>
-	import { Hero } from '$lib';
+	import { Hero, Button } from '$lib';
 	import { onMount } from 'svelte';
 	import { enhance } from '$app/forms';
 
@@ -51,7 +51,7 @@
         <button type="button" on:click={() => formState = 'idle'}>Idle</button>
         <button type="button" on:click={() => formState = 'loading'}>Loading</button>
         <button type="button" on:click={() => formState = 'success'}>Success</button>
-        <button type="button" on:click={() => { formState = 'error'; errorMessage = 'Testfout!' }}>Error</button>
+        <button type="button" on:click={() => { formState = 'error'; errorMessage = 'Er is iets fout gegaan probeer het later opnieuw!' }}>Error</button>
     </div>
 {/if}
 
@@ -126,10 +126,9 @@
 							<span>We reageren binnen 24 uur</span>
 						</div>
 					</div>
-					<button type="button" class="new-form-btn" on:click={resetForm}>
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+					<Button variant="silver" type="button" class="new-form-btn" on:click={resetForm}>
 						Nieuw bericht sturen
-					</button>
+					</Button>
 				</div>
 			{/if}
 
@@ -147,7 +146,7 @@
 						<strong>Verzenden mislukt</strong>
 						<p>{errorMessage}</p>
 					</div>
-					<button type="button" class="dismiss-btn" on:click={() => formState = 'idle'} aria-label="Sluiten">
+					<button  type="button" class="dismiss-btn" on:click={() => formState = 'idle'} aria-label="Sluiten">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
 						</svg>
@@ -204,7 +203,7 @@
 					</section>
 
 					<div class="button-wrapper animate-fade-in" style="animation-delay: 0.4s;">
-						<button type="submit" class="submit-btn" disabled={formState === 'loading'} aria-busy={formState === 'loading'}>
+						<Button variant="silver" type="submit" class="submit-btn" disabled={formState === 'loading'} aria-busy={formState === 'loading'}>
 							{#if formState === 'loading'}
 								<span class="btn-spinner" aria-hidden="true"></span>
 								Verzenden...
@@ -214,7 +213,7 @@
 								</svg>
 								VERZENDEN
 							{/if}
-						</button>
+						</Button>
 					</div>
 
 				</div>
