@@ -1,5 +1,5 @@
 <script>
-	import { Hero } from '$lib';
+	import { Hero, Button } from '$lib';
 	export let data;
 	let overons = data.overons;
 
@@ -59,6 +59,10 @@
 			<h2>{item.title}</h2>
 			<p>{item.content}</p>
 		  </article>
+		  <div class="button-wrapper" style="display: flex; justify-content: center; margin-top: 3rem;">
+			<Button href="/offerte" variant="silver" mobileOnly={true}> OFFERTE</Button>
+		  </div>
+		  
 		</section>
 	  {:else}
 		<!-- Standaard secties -->
