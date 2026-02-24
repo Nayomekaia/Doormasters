@@ -1,7 +1,9 @@
 <script>
   //componenten 
   import {Hero, place, Button} from '$lib'
+  import Faq from '$lib/components/Faq.svelte';
   import Reviews from '$lib/components/Reviews.svelte';
+  
 
   //images 
   import HeroHome from '$lib/assets/home-hero.jpg';
@@ -169,6 +171,7 @@
 
 <Reviews />
 
+<Faq {data} />
 
 <style>
 
@@ -836,15 +839,7 @@ margin-top: 3rem;
   }
 }
 
-/* ── IMAGE LAST ── */
-.image-last {
-  margin-top: 0;
-  max-width: 100%;
-  height: 60vh;
-  object-fit: cover;
-  display: block;
-  width: 100%;
-}
+
 
 /* ══════════════════════════════════════════
    RESPONSIVE — LARGE (1440px+)
