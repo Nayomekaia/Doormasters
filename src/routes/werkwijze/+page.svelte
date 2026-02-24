@@ -1,5 +1,5 @@
 <script>
-  import { Hero } from '$lib';
+  import { Hero, Button } from '$lib';
   import Working from '$lib/assets/working.png';
   export let data;
 
@@ -35,6 +35,9 @@
           </div>
         </div>
       </section>
+      <div class="button-wrapper" style="display: flex; justify-content: center; margin-top: -4rem; margin-bottom: 4rem">
+        <Button href="/offerte" variant="silver" mobileOnly={true}> OFFERTE</Button>
+      </div>
     {:else}
       <!-- Andere secties: nummer + content + image -->
       <section class="service-section" class:reverse={!isEven}>
