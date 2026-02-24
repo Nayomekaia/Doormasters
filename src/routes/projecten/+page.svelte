@@ -1,5 +1,5 @@
 <script>
-	import { Hero } from '$lib';
+	import { Hero, Button} from '$lib';
 	import Review from '$lib/components/Reviews.svelte';
 	export let data;
 	let projecten = data.projecten;
@@ -49,6 +49,7 @@
 			<p>Jaren ervaring</p>
 		</div>
 	</div>
+	<Button href="/offerte" variant="silver" mobileOnly={true}>OFFERTE</Button>
 </section>
 
 <section class="gallery">
@@ -58,6 +59,7 @@
 		</div>
 	{/each}
 </section>
+
 
 <Review />
 
