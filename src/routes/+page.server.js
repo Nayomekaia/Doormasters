@@ -1,14 +1,23 @@
 import { supabase } from '$lib/supabase.js';
 
 export async function load() {
-  const { data, error } = await supabase
-    .from('home')
-    .select('*'); 
 
-  if (error) {
-    console.error(error);
-    return { home: [] };
+  // Beide queries tegelijk uitvoeren (sneller)
+  const [homeRes, faqRes] = await Promise.all([
+    supabase.from('home').select('*'),
+    supabase.from('faq').select('*').order('id', { ascending: true })
+  ]);
+
+  if (homeRes.error) {
+    console.error('Home error:', homeRes.error);
   }
 
-  return { home: data };
+  if (faqRes.error) {
+    console.error('FAQ error:', faqRes.error);
+  }
+
+  return {
+    home: homeRes.data ?? [],
+    faq: faqRes.data ?? []
+  };
 }
