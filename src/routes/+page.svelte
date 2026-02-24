@@ -1,20 +1,22 @@
 <script>
-  //componenten 
-  import {Hero, place, Button} from '$lib'
+  // componenten 
+  import { Hero, place, Button } from '$lib';
   import MobileButton from '$lib/components/MobileButton.svelte';
   import Faq from '$lib/components/Faq.svelte';
   import Reviews from '$lib/components/Reviews.svelte';
-  
+  import ServiceCards from '$lib/components/ServiceCards.svelte';
 
-  //images 
+  // images 
   import HeroHome from '$lib/assets/home-hero.jpg';
   import Ja from '$lib/assets/ja.jpg';
-  
 
   // Data ophalen 
   export let data;
+  let services = data.services;
   let home = data.home;
+  let faq = data.faq;
 
+  // Home-secties
   const intro = home.find(item => item.section_key === 'intro');
   const deuren = home.filter(item => item.section_key === 'soort deuren');
   const industrieel = home.find(item => item.section_key === 'Industriële deuren ');
@@ -24,7 +26,6 @@
   const projecten = home.find(item => item.section_key === 'Projecten en referenties\n');
   const toekomst = home.find(item => item.section_key === ' Bouwen aan de toekomst');
   const video = home.find(item => item.section_key === 'video');
-
 </script>
 
 <svelte:head>
@@ -170,6 +171,7 @@
 </div>
 {/if}
 
+<ServiceCards {services}/>
 
 <Reviews />
 
