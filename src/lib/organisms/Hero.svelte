@@ -1,5 +1,5 @@
 <script>
-    import { Breadcrumb, place } from "$lib";
+    import { Breadcrumb, place, Button } from "$lib";
   
     export let title = "";
     export let description = "";
@@ -36,7 +36,6 @@
       </section>
     {/if}
     
-  
     </article>
   </section>
   
