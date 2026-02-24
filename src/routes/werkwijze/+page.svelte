@@ -3,12 +3,12 @@
   import Working from '$lib/assets/working.png';
   export let data;
 
-  let service = data.service;
+  let werkwijze = data.werkwijze;
 
 </script>
 
 <svelte:head>
-  <title>Service | Doormasters</title>
+  <title>Werkwijze| Doormasters</title>
 </svelte:head>
 
 <Hero
@@ -19,7 +19,7 @@
 
 
 <main>
-  {#each service as item, index (item.id)}
+  {#each werkwijze as item, index (item.id)}
     {@const isEven = index % 2 === 0}
     
     {#if index === 0}
