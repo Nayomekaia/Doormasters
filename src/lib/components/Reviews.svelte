@@ -22,7 +22,7 @@
 		align-items: center;
 		justify-content: center;
 		margin: 0;
-		padding: 2rem 1rem 2rem; /* kleine padding rondom */
+		padding: 2rem 1rem 2rem; 
 		background-color: var(--color-white);
 		width: 100%;
 		box-sizing: border-box;
@@ -32,7 +32,7 @@
 		font-size: 1.1rem;
 		text-align: center;
 		max-width: 100%;
-		margin: 0 0 1.5rem 0; /* alleen kleine bottom margin */
+		margin: 0 0 1.5rem 0; 
 	}
 
 	.reviews {
