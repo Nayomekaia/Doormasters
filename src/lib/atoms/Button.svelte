@@ -2,20 +2,21 @@
   export let href = null; // null = button, anders link
   export let variant = "silver";
   export let type = "button"; // "button" of "submit"
+  export let mobileOnly = false; // nieuwe prop, standaard false
 </script>
 
 {#if href}
-  <a class="btn {variant}" href={href}>
+  <a class="btn {variant} {mobileOnly ? 'mobile-only' : ''}" href={href}>
     <slot />
   </a>
 {:else}
-  <button class="btn {variant}" type={type}>
+  <button class="btn {variant} {mobileOnly ? 'mobile-only' : ''}" type={type}>
     <slot />
   </button>
 {/if}
-<style>
 
-/* algemene button styling*/
+<style>
+/* algemene button styling */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -28,8 +29,21 @@
   position: relative; 
 }
 
-/* button variant: silver */
+/* mobile-only */
+.mobile-only {
+  display: inline-flex; /* standaard zichtbaar op mobiel */
+}
 
+/* hide op tablet+ */
+@media (min-width: 1055px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* bestaande variant styling blijft hetzelfde */
+
+/* silver */
 .silver {
   color: var(--neutral-900);
   background: linear-gradient(
@@ -83,8 +97,7 @@
   }
 }
 
-/* button variant: outline */
-
+/* outline */
 .outline {
   background: transparent;
   border: 1px solid var(--color-blue-dark);
