@@ -1,6 +1,7 @@
 <script>
   //componenten 
   import {Hero, place, Button} from '$lib'
+  import MobileButton from '$lib/components/MobileButton.svelte';
   import Faq from '$lib/components/Faq.svelte';
   import Reviews from '$lib/components/Reviews.svelte';
   
@@ -36,6 +37,7 @@
   <header class="hero-text">
     <h1>DOORMASTERS</h1>
     <h2>Specialist in maatwerk deuren voor wonen en werken</h2>
+    <Button href="/offerte" variant="silver" mobileOnly={true}>OFFERTE</Button>
   </header>
 </section>
 
