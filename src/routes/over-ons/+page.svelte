@@ -223,7 +223,8 @@
 	.cta-content {
 	  max-width: 700px;
 	  margin: 0 auto;
-	  text-align: center;
+	  justify-content: center;
+	  align-items: center;
 	}
   
 	.cta-content h2 {
@@ -233,9 +234,11 @@
 	  letter-spacing: -0.02em;
 	  color: var(--color-white);
 	  font-weight: 600;
+	  text-align: center;
 	}
   
 	.cta-content p {
+	  text-align: left;
 	  font-size: 1.0625rem;
 	  line-height: 1.6;
 	  color: var(--color-white);
