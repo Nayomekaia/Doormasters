@@ -41,7 +41,10 @@
 		align-items: center;
 		gap: 1rem;
 		width: 100%;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
 	}
+
 
 	.review-image {
 		width: 100%;
@@ -73,7 +76,7 @@
 	@media (min-width: 1024px) {
 		h2 {
 			font-size: 1.5rem;
-			margin-bottom: 2rem; /* geen gigantische 9rem meer */
+			margin-bottom: 2rem; 
 		}
 
 		.reviews {
