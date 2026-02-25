@@ -109,7 +109,7 @@
 	.blog-card {
 	  background-color: var(--color-white);
 	  border: 1px solid var(--neutral-300);
-	  border-radius: 0;
+	  border-radius: 5px;
 	  overflow: hidden;
 	  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	  height: 100%;
