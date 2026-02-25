@@ -50,20 +50,6 @@
 	image="none"
 />
 
-{#if import.meta.env.DEV}
-	<div style="display:flex; gap:.5rem; padding:1rem; background:#f1f5f9; flex-wrap:wrap;">
-		<button type="button" on:click={() => (formState = 'idle')}>Idle</button>
-		<button type="button" on:click={() => (formState = 'loading')}>Loading</button>
-		<button type="button" on:click={() => (formState = 'success')}>Success</button>
-		<button
-			type="button"
-			on:click={() => {
-				formState = 'error';
-				errorMessage = 'Er is iets fout gegaan probeer het later opnieuw!';
-			}}>Error</button
-		>
-	</div>
-{/if}
 
 <section class="page-wrapper" class:visible={isVisible}>
 	<!-- INFO CARD -->
@@ -82,12 +68,12 @@
 			<section class="info-section">
 				<h3>Telefonisch bereikbaar</h3>
 				<ul>
-					<li>Maandag t/m vrijdag: 9:00 - 17:00</li>
+					<li style="font-family: var(--font-primary);  font-weight: var(--fw-light);" >Maandag t/m vrijdag: 9:00 - 17:00</li>
 				</ul>
 			</section>
 
 			<div class="info-note">
-				<div>
+				<div  style="font-family: var(--font-primary);">
 					<strong>Let op:</strong>
 					In het weekend en op feestdagen zijn wij telefonisch niet bereikbaar. U kunt wel altijd een
 					bericht achterlaten via dit contactformulier.
@@ -120,7 +106,7 @@
 							<path d="M8 12l3 3 5-5" />
 						</svg>
 					</div>
-					<div class="state-text">
+					<div class="state-text"  style="font-family: var(--font-primary);">
 						<strong>Bericht verzonden!</strong>
 						<p>Bedankt voor je bericht. We nemen binnen 24 uur contact met je op.</p>
 					</div>
@@ -137,7 +123,7 @@
 								stroke-linecap="round"
 								stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg
 							>
-							<span>Bericht ontvangen</span>
+							<span style="font-family: var(--font-primary);">Bericht ontvangen</span>
 						</div>
 						<div class="check-item">
 							<svg
@@ -148,7 +134,7 @@
 								stroke-linecap="round"
 								stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg
 							>
-							<span>Bevestigingsmail onderweg</span>
+							<span style="font-family: var(--font-primary);">Bevestigingsmail onderweg</span>
 						</div>
 						<div class="check-item pending">
 							<svg
@@ -160,7 +146,7 @@
 								stroke-linejoin="round"
 								><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg
 							>
-							<span>We reageren binnen 24 uur</span>
+							<span style="font-family: var(--font-primary);">We reageren binnen 24 uur</span>
 						</div>
 					</div>
 					<Button variant="silver" type="button" class="new-form-btn" on:click={resetForm}>
@@ -186,7 +172,7 @@
 							<line x1="12" y1="16" x2="12.01" y2="16" />
 						</svg>
 					</div>
-					<div class="state-text">
+					<div class="state-text"  style="font-family: var(--font-primary);">
 						<strong>Verzenden mislukt</strong>
 						<p>{errorMessage}</p>
 					</div>
@@ -216,7 +202,7 @@
 					{#if formState === 'loading'}
 						<div class="loading-overlay" aria-hidden="true">
 							<div class="spinner"></div>
-							<p>Bericht wordt verzonden...</p>
+							<p  style="font-family: var(--font-primary);" >Bericht wordt verzonden...</p>
 						</div>
 					{/if}
 
