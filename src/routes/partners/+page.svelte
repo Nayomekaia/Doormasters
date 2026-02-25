@@ -15,6 +15,7 @@
     title="PARTNERS" 
     description="Word partner bij Doormasters en versterk uw aanbod in garagedeuren en deuroplossingen. Bij Doormasters is het mogelijk om partner te worden als dealer of installateur in de deurenbranche. Wij werken samen met professionals die kiezen voor kwaliteit, betrouwbaarheid en service, en bieden ondersteuning bij levering, montage en techniek. Samen bouwen we aan duurzame en hoogwaardige deurprojecten."
     image={hero.imageUrl}
+    imageMobile={hero.imageMobileUrl}
   />
   
   <section id="intro" class="intro-section">
@@ -27,7 +28,17 @@
       <section class="card-grid">
         {#each intro?.images || [] as imageUrl, i}
           <section class="card">
-            <img src={imageUrl} alt={`Intro foto ${i + 1}`} />
+            <img 
+              src={imageUrl} 
+              alt={`Intro foto ${i + 1}`} 
+              loading="lazy"
+              srcset={`${imageUrl}?w=400 400w,
+                       ${imageUrl}?w=800 800w,
+                       ${imageUrl}?w=1200 1200w`}
+              sizes="(max-width: 640px) 100vw,
+                     (max-width: 1024px) 50vw,
+                     33vw"
+            />
           </section>
         {/each}
       </section>
@@ -41,7 +52,16 @@
     </article>
   
     <section class="partner-image">
-      <img src={partnerWorden?.imageUrl} alt="Partner worden bij Doormasters" />
+      <img 
+        src={partnerWorden?.imageUrl} 
+        alt="Partner worden bij Doormasters" 
+        loading="lazy"
+        srcset={`${partnerWorden?.imageUrl}?w=600 600w,
+                 ${partnerWorden?.imageUrl}?w=900 900w,
+                 ${partnerWorden?.imageUrl}?w=1200 1200w`}
+        sizes="(max-width: 768px) 100vw,
+               50vw"
+      />
     </section>
   </section>
   
