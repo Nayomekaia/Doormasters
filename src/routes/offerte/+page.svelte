@@ -134,7 +134,7 @@
 							<span  style="font-family: var(--font-primary);">We nemen binnen 1-2 werkdagen contact op</span>
 						</div>
 					</div>
-					<Button variant="silver" type="button" class="new-form-btn" on:click={resetForm}>
+					<Button  variant="silver" type="button" class="new-form-btn " on:click={resetForm}>
 						Nieuwe aanvraag indienen
 					</Button>
 				</div>
@@ -329,7 +329,7 @@
 							</div>
 						</fieldset>
 
-						<div class="button-wrapper animate-fade-in" style="animation-delay: 0.9s;">
+						<div class="button-wrapper animate-fade-in" style="animation-delay: 0.9s;);">
 							<Button
 								variant="silver"
 								type="submit"
