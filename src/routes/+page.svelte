@@ -5,6 +5,7 @@
   import Faq from '$lib/components/Faq.svelte';
   import Reviews from '$lib/components/Reviews.svelte';
   import ServiceCards from '$lib/components/ServiceCards.svelte';
+  import { onMount } from 'svelte';
 
   // images 
   import HeroHome from '$lib/assets/home-hero.jpg';
@@ -26,6 +27,9 @@
   const projecten = home.find(item => item.section_key === 'Projecten en referenties\n');
   const toekomst = home.find(item => item.section_key === ' Bouwen aan de toekomst');
   const video = home.find(item => item.section_key === 'video');
+
+  let vid;
+
 </script>
 
 <svelte:head>
@@ -159,16 +163,19 @@
 </section>
 {/if}
 
-
-
 {#if video}
-<div class="video-wrapper">
-  <iframe
-    src="{video.video}?autoplay=1&mute=1&rel=0&controls=1"
-    title="{video.title}"
-    allowfullscreen
-  ></iframe>
-</div>
+<section class="video-section">
+  <video
+    bind:this={vid}
+    autoplay
+    playsinline
+    loop
+    class="section-video"
+  >
+    <source src="{video.video}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section>
 {/if}
 
 <ServiceCards {services}/>
@@ -756,36 +763,32 @@ margin-top: 3rem;
 /* ══════════════════════════════════════════
    VIDEO
 ══════════════════════════════════════════ */
-.video-wrapper {
+.video-section {
   position: relative;
-  width: 100vw;        /* volledige breedte van het scherm */
-  height: 56.25vw;     /* aspect ratio 16:9 mobile-first */
-  max-height: 100vh;   /* voorkomt dat het groter wordt dan schermhoogte */
+  width: 100%;
+  height: 60vh;
   overflow: hidden;
 }
 
-.video-wrapper iframe {
+.section-video {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 177.77%;  /* 16/9 ratio */
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
   transform: translate(-50%, -50%);
-  border: 0;
-  object-fit: cover;  /* video vult de container volledig */
+  object-fit: cover;
 }
 
-/* ===== Desktop ===== */
+
 @media (min-width: 768px) {
-  .video-wrapper {
-    height: 60vh;  /* minder hoog op tablet/desktop */
-  }
+  .video-section { height: 70vh; }
 }
 
 @media (min-width: 1024px) {
-  .video-wrapper {
-    height: 70vh;  /* past mooi op desktop */
-  }
+  .video-section { height: 80vh; }
 }
 /* ══════════════════════════════════════════
    RESPONSIVE — TABLET (768px+)
@@ -813,10 +816,6 @@ margin-top: 3rem;
     max-width: none;
     margin: 0;
   }
-
-  .video-wrapper {
-    margin: 6rem auto;
-  }
 }
 
 /* ══════════════════════════════════════════
@@ -836,10 +835,6 @@ margin-top: 3rem;
   .industrieel-section,
   .service-section {
     margin: 0; /* ← was: 8rem 0 */
-  }
-
-  .video-wrapper {
-    margin: 8rem auto;
   }
 }
 
