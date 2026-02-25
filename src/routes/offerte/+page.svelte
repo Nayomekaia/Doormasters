@@ -55,21 +55,6 @@
 	image="none"
 />
 
-{#if import.meta.env.DEV}
-	<div style="display:flex; gap:.5rem; padding:1rem; background:#f1f5f9; flex-wrap:wrap;">
-		<button type="button" on:click={() => (formState = 'idle')}>Idle</button>
-		<button type="button" on:click={() => (formState = 'loading')}>Loading</button>
-		<button type="button" on:click={() => (formState = 'success')}>Success</button>
-		<button
-			type="button"
-			on:click={() => {
-				formState = 'error';
-				errorMessage = 'Er is iets fout gegaan probeer het later opnieuw!';
-			}}>Error</button
-		>
-	</div>
-{/if}
-
 <section class="page-wrapper" class:visible={isVisible}>
 	<section class="contact-wrapper animate-slide-left">
 		<Contact />
