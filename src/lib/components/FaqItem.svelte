@@ -30,6 +30,7 @@
     padding: 1em;
     margin-bottom: 1em;
     max-width: 600px;
+    min-width: 325px;
     transition: background-color 0.3s, color 0.3s;
   }
   
