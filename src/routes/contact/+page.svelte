@@ -62,7 +62,7 @@
 
 			<section class="info-section">
 				<h3>Reactietijd</h3>
-				<p>Wij streven ernaar om binnen 24 uur te reageren op uw vraag.</p>
+				<p>Wij streven ernaar om binnen 24 uur te reageren op jouw vraag.</p>
 			</section>
 
 			<section class="info-section">
@@ -75,7 +75,7 @@
 			<div class="info-note">
 				<div  style="font-family: var(--font-primary);">
 					<strong>Let op:</strong>
-					In het weekend en op feestdagen zijn wij telefonisch niet bereikbaar. U kunt wel altijd een
+					In het weekend en op feestdagen zijn wij telefonisch niet bereikbaar. Je kunt wel altijd een
 					bericht achterlaten via dit contactformulier.
 				</div>
 			</div>
