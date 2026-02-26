@@ -60,7 +60,7 @@
 			<p>{item.content}</p>
 		  </article>
 		  <div class="button-wrapper" style="display: flex; justify-content: center; margin-top: 3rem;">
-			<Button href="/offerte" variant="silver" mobileOnly={true}> OFFERTE</Button>
+			<Button href="/offerte" variant="silver"> OFFERTE</Button>
 		  </div>
 		  
 		</section>
