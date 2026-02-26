@@ -8,8 +8,8 @@
     <article class="intro">
       <h2>Veelgestelde vragen</h2>
       <p>
-        Heeft u een vraag over onze deuren, installatie of onderhoud? Hier vindt u snel antwoord
-        op veelgestelde vragen. Staat uw vraag er niet bij? Neem gerust contact met ons op, wij helpen u graag.
+        Heb je een vraag over onze deuren, installatie of onderhoud? Hier vind je snel antwoord
+        op veelgestelde vragen.Staat je vraag er niet bij? Neem gerust contact met ons op, wij helpen je graag.
       </p>
       <Button href="/contact" variant="outline">Contact</Button>
     </article>
