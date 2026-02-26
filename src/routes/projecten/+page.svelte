@@ -19,9 +19,12 @@
 </svelte:head>
 
 <Hero
-	title="PROJECTEN"
-	description="Word partner bij Doormasters en versterk uw aanbod in garagedeuren en deuroplossingen. Bij Doormasters is het mogelijk om partner te worden als dealer of installateur in de deurenbranche. Wij werken samen met professionals die kiezen voor kwaliteit, betrouwbaarheid en service, en bieden ondersteuning bij levering, montage en techniek. Samen bouwen we aan duurzame en hoogwaardige deurprojecten."
-/>
+<Hero title="PROJECTEN"
+      description= "Elke deur die wij leveren en monteren is onderdeel van een groter geheel: een
+		woning, bedrijfspand of projectontwikkeling waar kwaliteit, uitstraling en
+		betrouwbaarheid centraal staan. Op deze pagina vind je een selectie van
+		gerealiseerde projecten van Doormasters – in Nederland en internationaal.">
+</Hero>
 
 {#if intro}
 	<section class="project-intro">
@@ -33,16 +36,37 @@
 	</section>
 {/if}
 
+<section class="info-section">
+	<div class="content">
+	  <p style="margin-bottom: 4rem; justify-content: center; text-align: center; font-size: 1.5rem;" >In iedere situatie staat dezelfde aanpak centraal:</p>
+	  
+	  <div class="info-flex">
+		<ul class="info-list">
+		  <li>Zorgvuldige technische voorbereiding en gratis inmeting;</li>
+		  <li>Advies op basis van gebruik, locatie en esthetiek;</li>
+		  <li>Duidelijke, transparante offerte;</li>
+		  <li>Duurzame materialen en hoogwaardige afwerking;</li>
+		  <li>Professionele montage volgens geldende normen.</li>
+		</ul>
+  
+		<div class="info-text">
+		  <p>De getoonde projecten geven inzicht in de verschillende toepassingen, deurtypes en afwerkingsmogelijkheden. Ze laten zien hoe functionaliteit, veiligheid en design samenkomen in praktische oplossingen die jarenlang betrouwbaar blijven functioneren.</p>
+		  <p>Doormasters realiseert maatwerkoplossingen met oog voor detail – van eerste advies tot oplevering.</p>
+		</div>
+	  </div>
+	</div>
+  </section>
+
 <section class="project-count">
 	<h2 class="title">Projecten die we hebben afgerond</h2>
 	<div class="project-count-numbers">
 		<div>
-			<h3>1865</h3>
-			<p>Industriedeuren</p>
+			<h3>2865</h3>
+			<p>Sectionaaldeuren:</p>
 		</div>
 		<div>
-			<h3>1209</h3>
-			<p>Garagedeuren</p>
+			<h3>1221</h3>
+			<p>Industriële deuren:</p>
 		</div>
 		<div>
 			<h3>10+</h3>
@@ -51,6 +75,7 @@
 	</div>
 	<Button href="/offerte" variant="silver" mobileOnly={true}>OFFERTE</Button>
 </section>
+
 
 <section class="gallery">
 	{#each galleryImages as img, i}
@@ -64,7 +89,65 @@
 <Review />
 
 <style>
-	/* ── Mobile first (basis) ── */
+/* Mobile-first */
+.info-section {
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.info-section .content {
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.content p {
+	text-align: left;
+}
+.info-list {
+  padding-left: 1.2rem;
+  margin: 1rem 0;
+  list-style-type: disc;
+  color: var(--color-blue-dark);
+  font-family: var(--font-primary);
+  font-weight: var(--fw-light);
+}
+
+/* Flex wrapper for desktop/tablet */
+.info-flex {
+  display: block; /* default for mobile: stacked */
+  gap: 2rem; /* spacing between list and text */
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .info-section {
+    padding: 2rem 2rem;
+  }
+
+  .info-flex {
+    display: flex; /* side-by-side on larger screens */
+    align-items: flex-start;
+	gap: 5rem;
+  }
+  
+
+  .info-list {
+    flex: 1; /* list takes half width */
+  }
+
+  .info-text {
+    flex: 1; /* text takes half width */
+  }
+}
+
+@media (min-width: 1024px) {
+  .info-section {
+    padding: 3rem 4rem;
+  }
+}
 
 	.project-intro {
 		display: flex;
@@ -88,7 +171,7 @@
 
 	p {
 		font-size: 0.95rem;
-		text-align: left;
+		text-align: center;
 		max-width: 100%;
 		margin: 0 auto;
 	}
