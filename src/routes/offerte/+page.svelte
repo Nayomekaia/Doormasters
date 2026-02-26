@@ -50,7 +50,7 @@
 </svelte:head>
 
 <Hero
-	title="OFFERTES AANVRAGEN"
+	title="OFFERTE AANVRAGEN"
 	description="Vraag eenvoudig en vrijblijvend een offerte aan. Vul het formulier in met je wensen en afmetingen, dan nemen wij zo snel mogelijk contact met je op met een passend voorstel."
 	image="none"
 />
