@@ -19,9 +19,9 @@
 
 <section class="topnav">
   <ul class="top-left">
-    <li><a href="/particulier">Particulier</a></li>
+    <li><a href="/projecten">Particulier</a></li>
     <li><span class="separator">|</span></li>
-    <li><a href="/zakelijk">Zakelijk</a></li>
+    <li><a href="/partners">Zakelijk</a></li>
   </ul>
 
   <img src={logo} alt="Doormasters logo" class="logo" />
