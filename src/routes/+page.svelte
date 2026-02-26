@@ -1,6 +1,7 @@
 <script>
   // componenten 
   import { Hero, place, Button } from '$lib';
+  import Logo from '$lib/assets/logo.png';
   import MobileButton from '$lib/components/MobileButton.svelte';
   import Faq from '$lib/components/Faq.svelte';
   import Reviews from '$lib/components/Reviews.svelte';
@@ -50,6 +51,10 @@
     <h2>Specialist in maatwerk deuren voor wonen en werken</h2>
     <Button href="/offerte" variant="silver" mobileOnly={true}>OFFERTE</Button>
   </header>
+</section>
+
+<section class="logo-section">
+  <img class="logo" src={Logo} alt="Company logo" />
 </section>
 
 <!-- INTRO -->
@@ -229,6 +234,34 @@
 <Faq {data}/>
 
 <style>
+
+.logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .logo {
+    width: 160px;   /* good mobile size */
+    height: auto;
+    margin-top: 4rem;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) {
+    .logo {
+      width: 200px;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+
+    .logo {
+      width: 240px;
+    }
+  }
 
 .button-wrapper {
 margin-top: 3rem;  
@@ -592,7 +625,7 @@ margin-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
   margin-bottom: 3rem;
 }
