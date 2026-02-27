@@ -170,3 +170,9 @@
   list-style: none;
   text-decoration: none;
  }
+
+ li {
+  font-family: var(--font-primary);
+  color: var(--color-blue-dark);
+  font-weight: var(--fw-light);
+ }
