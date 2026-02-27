@@ -13,7 +13,12 @@ export const actions = {
 		const email = data.get('email');
 		const telefoon = data.get('telefoon');
 		const adres = data.get('adres');
+		const postcode = data.get('postcode');
+		const plaats = data.get('plaats');
+		const provincie = data.get('provincie');
+		const land = data.get('land');
 		const soortDeur = data.get('soortDeur') ?? 'Onbekend';
+		const dagmaat = data.get('dagmaat');
 
 		try {
 			await resend.emails.send({
@@ -25,7 +30,12 @@ export const actions = {
 					<p><strong>Email:</strong> ${email}</p>
 					<p><strong>Telefoon:</strong> ${telefoon}</p>
 					<p><strong>Adres:</strong> ${adres}</p>
+					<p><strong>Postcode:</strong> ${postcode}</p>
+					<p><strong>Plaats:</strong> ${plaats}</p>
+					<p><strong>Provincie:</strong> ${provincie}</p>
+					<p><strong>Land:</strong> ${land}</p>
 					<p><strong>Soort Deur:</strong> ${soortDeur}</p>
+					<p><strong>Dagmaat:</strong> ${dagmaat}</p>
 				`
 			});
 
