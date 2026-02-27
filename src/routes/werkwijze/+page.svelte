@@ -1,10 +1,11 @@
 <script>
   import { Hero, Button } from '$lib';
   import Working from '$lib/assets/working.png';
+  
   export let data;
 
+  // Haal de juiste property uit data
   let werkwijze = data.werkwijze;
-
 </script>
 
 <svelte:head>
