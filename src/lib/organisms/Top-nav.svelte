@@ -27,11 +27,11 @@
   <img src={logo} alt="Doormasters logo" class="logo" />
 
   <ul class="top-right">
+   <li style="opacity: 0;"><span class="separator">|</span></li>
+    <li style="opacity: 0;"><a href="?lang=en">EN</a></li>
+    <li style="opacity: 0;"><span class="separator">|</span></li>
+    <li style="opacity: 0;"><a href="?lang=es">ES</a></li>
     <li><a href="?lang=nl" class="active">NL</a></li>
-   <!--    <li><span class="separator">|</span></li>
-    <li><a href="?lang=en">EN</a></li>
-    <li><span class="separator">|</span></li>
-    <li><a href="?lang=es">ES</a></li>-->
   </ul> 
 
   <!-- Hamburger Menu -->
