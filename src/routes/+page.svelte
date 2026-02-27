@@ -240,6 +240,8 @@ margin-top: 3rem;
 	text-transform: uppercase;
 	color: var(--color-blue-dark);
 	margin-bottom: 1rem;
+
+
 	max-width: 300px;
 	margin-left: auto;
 	margin-right: auto;
@@ -285,10 +287,10 @@ margin-top: 3rem;
   scrollbar-width: none;  /* Firefox */
 }
 
-/* Each image wrapper */
 .projecten-image-wrapper {
-  flex: 0 0 auto; /* don't shrink, don't grow */
-  width: 300px; /* desktop size */
+  flex: 0 0 auto;
+  width: 300px;          /* desktop */
+  aspect-ratio: 4 / 3;   /* breedte:hoogte verhouding */
   scroll-snap-align: start;
   border-radius: 8px;
   overflow: hidden;
@@ -298,11 +300,10 @@ margin-top: 3rem;
 
 .projecten-image-wrapper img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
-
 /* Hover effect */
 .projecten-image-wrapper:hover {
   transform: scale(1.05);
@@ -328,7 +329,6 @@ margin-top: 3rem;
     width: 200px; /* smaller on mobile */
   }
 }
-
 
 
 /* ══════════════════════════════════════════
