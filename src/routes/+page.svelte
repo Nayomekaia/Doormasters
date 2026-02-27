@@ -205,16 +205,20 @@
 
 {#if video}
 <section class="video-section">
-  <video
-    bind:this={vid}
-    autoplay
-    playsinline
-    loop
-    class="section-video"
-  >
-    <source src="{video.video}" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <div class="video-inner">
+    <p class="video-instruction">
+      Druk op de video hieronder om deze af te spelen
+    </p>
+    <video
+      bind:this={vid}
+      controls
+      class="section-video"
+      preload="metadata"
+    >
+      <source src={video.video} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </section>
 {/if}
 
@@ -781,7 +785,7 @@ margin-top: 3rem;
   }
 
   .werkwijze-section {
-    margin: 0; /* ← was: 8rem 0 */
+    margin: 0;
   }
 }
 
@@ -801,32 +805,92 @@ margin-top: 3rem;
 /* ══════════════════════════════════════════
    VIDEO
 ══════════════════════════════════════════ */
+/* VIDEO SECTIE */
 .video-section {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 60vh;
+  position: relative;
   overflow: hidden;
+  padding: 2rem 1rem;
+  background-color: var(--color-light-gray);
+}
+
+.video-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.video-instruction {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--color-blue-dark);
 }
 
 .section-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
+  width: 100%;
   height: auto;
-  transform: translate(-50%, -50%);
+  max-height: 60vh;
+  border-radius: 8px;
   object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 
+
+
+
+
+/* TABLET (768px+) */
 @media (min-width: 768px) {
-  .video-section { height: 70vh; }
+  .video-section {
+    height: 70vh;
+    padding: 3rem 2rem;
+  }
+  .video-instruction {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .section-video {
+    max-height: 70vh;
+  }
 }
 
+/* DESKTOP (1024px+) */
 @media (min-width: 1024px) {
-  .video-section { height: 80vh; }
+  .video-section {
+    height: 80vh;
+    padding: 4rem 3rem;
+  }
+  .video-instruction {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-video {
+    max-height: 80vh;
+  }
+}
+
+/* LARGE SCREEN (1440px+) */
+@media (min-width: 1440px) {
+  .video-section {
+    height: 90vh;
+    padding: 5rem 4rem;
+  }
+  .video-instruction {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+  }
+  .section-video {
+    max-height: 90vh;
+  }
 }
 /* ══════════════════════════════════════════
    RESPONSIVE — TABLET (768px+)
