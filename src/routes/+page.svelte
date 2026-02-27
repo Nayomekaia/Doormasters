@@ -1,5 +1,4 @@
 <script>
-  // componenten 
   import { Hero, place, Button } from '$lib';
   import Logo from '$lib/assets/logo.png';
   import MobileButton from '$lib/components/MobileButton.svelte';
@@ -8,17 +7,14 @@
   import ServiceCards from '$lib/components/ServiceCards.svelte';
   import { onMount } from 'svelte';
 
-  // images 
   import HeroHome from '$lib/assets/home-hero.jpg';
   import Ja from '$lib/assets/ja.jpg';
 
-  // Data ophalen 
   export let data;
   let services = data.services;
   let home = data.home;
   let faq = data.faq;
 
-  // Home-secties
   const intro = home.find(item => item.section_key === 'intro');
   const deuren = home.filter(item => item.section_key === 'soort deuren');
   const industrieel = home.find(item => item.section_key === 'Industriële deuren ');
@@ -36,16 +32,16 @@
   <title>Doormasters | Meesters in Deuren</title>
 </svelte:head>
 
-<!-- HERO -->
 <section class="hero">
   <img 
     src={HeroHome} 
     alt="Doormasters hero" 
     class="hero-image" 
     loading="lazy"
+    decoding="async"
     srcset={`${HeroHome}?w=600 600w, ${HeroHome}?w=1200 1200w, ${HeroHome}?w=2000 2000w`}
     sizes="100vw"
-  > 
+  /> 
   <header class="hero-text">
     <h1>DOORMASTERS</h1>
     <h2>Specialist in maatwerk deuren voor wonen en werken</h2>
@@ -53,11 +49,6 @@
   </header>
 </section>
 
-<section class="logo-section">
-  <img class="logo" src={Logo} alt="Company logo" />
-</section>
-
-<!-- INTRO -->
 {#if intro}
 <section class="intro-section">
   <article class="intro-content">
@@ -67,13 +58,11 @@
 </section>
 {/if}
 
-<!-- DEUREN -->
 {#if deuren.length > 0}
 <section class="deuren-section">
   <header class="deuren-header">
     <span class="label-1">{deuren[0].subtitle}</span>
   </header>
-  
   <ul class="deuren-grid">
     {#each deuren as deur}
     <li class="deur-card">
@@ -82,9 +71,10 @@
           src={deur.image} 
           alt={deur.title} 
           loading="lazy"
+          decoding="async"
           srcset={`${deur.image}?w=400 400w, ${deur.image}?w=800 800w, ${deur.image}?w=1200 1200w`}
           sizes="(max-width: 768px) 100vw, 33vw"
-        >
+        />
       </figure>
       <article class="deur-content">
         <h4>{deur.title}</h4>
@@ -96,14 +86,13 @@
 </section>
 {/if}
 
-<!-- INDUSTRIEEL -->
 {#if industrieel}
 <section class="industrieel-section">
   <article class="industrieel-content">
     <span class="label">{industrieel.subtitle}</span>
     <h3>{industrieel.title}</h3>
     <p>{@html industrieel.body.replace(/\n/g, '<br>')}</p>
-    <section class='button-wrapper'>
+    <section class="button-wrapper">
       <Button href="/projecten" variant="outline">Lees meer</Button>
     </section>
   </article>
@@ -112,14 +101,14 @@
       src={industrieel.image} 
       alt={industrieel.title} 
       loading="lazy"
+      decoding="async"
       srcset={`${industrieel.image}?w=600 600w, ${industrieel.image}?w=900 900w, ${industrieel.image}?w=1200 1200w`}
       sizes="(max-width: 768px) 100vw, 50vw"
-    >
+    />
   </figure>
 </section>
 {/if}
 
-<!-- PERFECTE DEUR -->
 {#if perfecteDeur}
 <section class="perfecte-deur-section">
   <figure class="perfecte-deur-image-full">
@@ -127,9 +116,10 @@
       src={place} 
       alt={perfecteDeur.title} 
       loading="lazy"
+      decoding="async"
       srcset={`${place}?w=600 600w, ${place}?w=900 900w, ${place}?w=1200 1200w`}
       sizes="100vw"
-    >
+    />
   </figure>
   <article class="perfecte-deur-text">
     <h2>{perfecteDeur.title}</h2>
@@ -138,7 +128,6 @@
 </section>
 {/if}
 
-<!-- SERVICE -->
 {#if service}
 <section class="service-section">
   <figure class="service-image">
@@ -146,29 +135,29 @@
       src={service.image} 
       alt={service.title} 
       loading="lazy"
+      decoding="async"
       srcset={`${service.image}?w=600 600w, ${service.image}?w=900 900w, ${service.image}?w=1200 1200w`}
       sizes="(max-width: 768px) 100vw, 50vw"
-    >
+    />
   </figure>
   <article class="service-content">
     <span class="label">{service.subtitle}</span>
     <h3>{service.title}</h3>
     <p>{@html service.body.replace(/\n/g, '<br>')}</p>
-    <section class='button-wrapper'>
+    <section class="button-wrapper">
       <Button href="/projecten" variant="outline">Lees meer</Button>
     </section>
   </article>
 </section>
 {/if}
 
-<!-- WERKWIJZE -->
 {#if werkwijze}
 <section class="werkwijze-section">
   <article class="werkwijze-content">
     <span class="label">{werkwijze.subtitle}</span>
     <h3>{werkwijze.title}</h3>
     <p>{@html werkwijze.body.replace(/\n/g, '<br>')}</p>
-    <section class='button-wrapper'>
+    <section class="button-wrapper">
       <Button href="/projecten" variant="outline">Lees meer</Button>
     </section>
   </article>
@@ -177,30 +166,31 @@
       src={werkwijze.image} 
       alt={werkwijze.title} 
       loading="lazy"
+      decoding="async"
       srcset={`${werkwijze.image}?w=600 600w, ${werkwijze.image}?w=900 900w, ${werkwijze.image}?w=1200 1200w`}
       sizes="(max-width: 768px) 100vw, 50vw"
-    >
+    />
   </figure>
 </section>
 {/if}
 
-<!-- PROJECTEN -->
 {#if projecten}
 <section class="projecten-section">
   <article class="projecten-content">
     <h2>{projecten.title}</h2>
     <p>{@html projecten.body.replace(/\n/g, '<br>')}</p>
 
-    <div class="projecten-images" bind:this={container}>
+    <div class="projecten-images">
       {#each projecten.image.split('\n').filter(url => url.trim() !== '') as imgUrl}
         <div class="projecten-image-wrapper">
           <img 
             src={imgUrl.trim()} 
             alt={projecten.title} 
             loading="lazy"
+            decoding="async"
             srcset={`${imgUrl.trim()}?w=400 400w, ${imgUrl.trim()}?w=800 800w, ${imgUrl.trim()}?w=1200 1200w`}
             sizes="(max-width: 768px) 100vw, 33vw"
-          >
+          />
         </div>
       {/each}
     </div>
@@ -213,7 +203,6 @@
 </section>
 {/if}
 
-<!-- VIDEO -->
 {#if video}
 <section class="video-section">
   <video
@@ -234,34 +223,6 @@
 <Faq {data}/>
 
 <style>
-
-.logo-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  }
-
-  .logo {
-    width: 160px;   /* good mobile size */
-    height: auto;
-    margin-top: 4rem;
-  }
-
-  /* Tablet */
-  @media (min-width: 768px) {
-    .logo {
-      width: 200px;
-    }
-  }
-
-  /* Desktop */
-  @media (min-width: 1024px) {
-
-    .logo {
-      width: 240px;
-    }
-  }
 
 .button-wrapper {
 margin-top: 3rem;  
