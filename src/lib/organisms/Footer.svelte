@@ -72,7 +72,7 @@
 
       <div class="desktop-menu">
         <h5>Contact</h5>
-        <p>Ons team staat klaar om u de juiste antwoorden te geven.</p>
+        <p>Ons team staat klaar om jouw de juiste antwoorden te geven.</p>
         <ul>
           <li>Doormasters BV</li>
           <li>Middelblok 136 d</li>
