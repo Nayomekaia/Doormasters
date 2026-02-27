@@ -85,7 +85,11 @@
   .bottom-nav a.menu-button.active::after {
     width: 100%;
   }
+  @media (min-width: 600px) {
+
   
+    
+  }
   @media (min-width: 1055px) {
     .bottom-nav {
       display: block;
