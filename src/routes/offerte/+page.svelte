@@ -249,7 +249,7 @@
 							<p>Staat/Regio/Provincie<span>*</span></p>
 							<input
 								type="text"
-								name="staat"
+								name="provincie"
 								placeholder="Bijv. Noord-Holland"
 								required
 								disabled={formState === 'loading'}
@@ -328,6 +328,18 @@
 								{/each}
 							</div>
 						</fieldset>
+
+
+						<label class="input-wrapper">
+							<p>Dagmaat (breedte x hoogte)<span>*</span></p>
+							<input
+								type="text"
+								name="dagmaat"
+								placeholder="Bijv. 2500 mm (breedte) x 2125 mm (hoogte) "
+								required
+								disabled={formState === 'loading'}
+							/>
+						</label>
 
 						<div class="button-wrapper animate-fade-in" style="animation-delay: 0.9s;);">
 							<Button
