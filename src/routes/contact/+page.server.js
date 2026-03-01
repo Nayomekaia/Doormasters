@@ -1,23 +1,22 @@
-import 'dotenv/config';
 import { Resend } from "resend";
 import { RESEND_API_KEY } from '$env/static/private';
 import { fail } from "@sveltejs/kit";
 
 const resend = new Resend(RESEND_API_KEY);
-
 const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
 
-    const naam = data.get("naam");
-    const achternaam = data.get("achternaam");
-    const telefoon = data.get("telefoon");
-    const email = data.get("email");
-    const adres = data.get("adres");
-    const vraag = data.get("vraag");
+    const naam = data.get("naam") ?? '';
+    const achternaam = data.get("achternaam") ?? '';
+    const telefoon = data.get("telefoon") ?? '';
+    const email = data.get("email") ?? '';
+    const adres = data.get("adres") ?? '';
+    const vraag = data.get("vraag") ?? '';
 
+    // verplichte velden
     if (!naam || !achternaam || !email || !vraag) {
       return fail(400, { error: "Verplichte velden missen" });
     }
@@ -27,18 +26,37 @@ export const actions = {
     }
 
     try {
+      // 1️⃣ Mail naar interne inbox
       await resend.emails.send({
-        from: "Doormasters <onboarding@resend.dev>",
-        to: "info@door-masters.nl", 
+        from: "Doormasters <onboarding@door-masters.nl>",
+        to: "nayomedoelwijt@gmail.com",
         subject: "Nieuwe contact aanvraag",
-        text: `
-Naam: ${naam} ${achternaam}
-Telefoon: ${telefoon}
-Email: ${email}
-Adres: ${adres}
+        html: `
+          <p><strong>Naam:</strong> ${naam} ${achternaam}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Telefoon:</strong> ${telefoon}</p>
+          <p><strong>Adres:</strong> ${adres}</p>
+          <p><strong>Vraag:</strong><br>${vraag}</p>
+        `,
+      });
 
-Vraag:
-${vraag}
+      // 2️⃣ Bevestigingsmail naar de klant
+      await resend.emails.send({
+        from: "Doormasters <onboarding@door-masters.nl>",
+        to: email,
+        subject: "Bevestiging: je contactaanvraag",
+        html: `
+          <p>Beste ${naam},</p>
+          <p>Bedankt voor je contactaanvraag bij Doormasters! We hebben je bericht ontvangen en nemen zo snel mogelijk contact met je op.</p>
+          <p>Hier is een overzicht van je aanvraag:</p>
+          <ul>
+            <li>Naam: ${naam} ${achternaam}</li>
+            <li>Telefoon: ${telefoon}</li>
+            <li>Email: ${email}</li>
+            <li>Adres: ${adres}</li>
+            <li>Vraag: ${vraag}</li>
+          </ul>
+          <p>Met vriendelijke groet,<br>Team Doormasters</p>
         `,
       });
 
