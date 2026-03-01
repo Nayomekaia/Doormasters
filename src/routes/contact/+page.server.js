@@ -29,7 +29,7 @@ export const actions = {
       // 1️⃣ Mail naar interne inbox
       await resend.emails.send({
         from: "Doormasters <onboarding@door-masters.nl>",
-        to: "nayomedoelwijt@gmail.com",
+        to: "info@door-masters.nl",
         subject: "Nieuwe contact aanvraag",
         html: `
           <p><strong>Naam:</strong> ${naam} ${achternaam}</p>
