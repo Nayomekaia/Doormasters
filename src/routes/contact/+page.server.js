@@ -5,16 +5,20 @@ import { fail } from "@sveltejs/kit";
 const resend = new Resend(RESEND_API_KEY);
 const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Kleine sanitization functie
+const sanitize = str =>
+  str ? str.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char])) : '';
+
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
 
-    const naam = data.get("naam") ?? '';
-    const achternaam = data.get("achternaam") ?? '';
-    const telefoon = data.get("telefoon") ?? '';
-    const email = data.get("email") ?? '';
-    const adres = data.get("adres") ?? '';
-    const vraag = data.get("vraag") ?? '';
+    const naam = sanitize(data.get("naam"));
+    const achternaam = sanitize(data.get("achternaam"));
+    const telefoon = sanitize(data.get("telefoon"));
+    const email = sanitize(data.get("email"));
+    const adres = sanitize(data.get("adres"));
+    const vraag = sanitize(data.get("vraag"));
 
     // Verplichte velden
     if (!naam || !achternaam || !email || !vraag) {
@@ -28,7 +32,7 @@ export const actions = {
     try {
       // 1️⃣ Mail naar interne inbox
       await resend.emails.send({
-        from: "Doormasters <onboarding@door-masters.nl>",
+        from: "Doormasters <onboarding@info.door-masters.nl>",
         to: "info@door-masters.nl",
         subject: "Nieuwe contact aanvraag",
         html: `
@@ -40,7 +44,7 @@ export const actions = {
         `,
       });
 
-      // 1️⃣b Verstuur hetzelfde naar je webhook endpoint
+      // 1️⃣b Verstuur ook naar je webhook endpoint
       await fetch('https://door-master.nl/api/resend-webhook', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -57,7 +61,7 @@ export const actions = {
 
       // 2️⃣ Bevestigingsmail naar de klant
       await resend.emails.send({
-        from: "Doormasters <onboarding@door-masters.nl>",
+        from: "Doormasters <onboarding@info.door-masters.nl>",
         to: email,
         subject: "Bevestiging: je contactaanvraag",
         html: `

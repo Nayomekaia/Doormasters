@@ -3,26 +3,30 @@ import { Resend } from 'resend';
 
 const resend = new Resend(RESEND_API_KEY);
 
+// Kleine sanitization functie voor veiligheid
+const sanitize = str =>
+  str ? str.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char])) : '';
+
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
 
-    const naam = data.get('naam') ?? '';
-    const achternaam = data.get('achternaam') ?? '';
-    const email = data.get('email') ?? '';
-    const telefoon = data.get('telefoon') ?? '';
-    const adres = data.get('adres') ?? '';
-    const postcode = data.get('postcode') ?? '';
-    const plaats = data.get('plaats') ?? '';
-    const provincie = data.get('provincie') ?? '';
-    const land = data.get('land') ?? '';
-    const soortDeur = data.get('soortDeur') ?? 'Onbekend';
-    const dagmaat = data.get('dagmaat') ?? '';
+    const naam = sanitize(data.get('naam'));
+    const achternaam = sanitize(data.get('achternaam'));
+    const email = sanitize(data.get('email'));
+    const telefoon = sanitize(data.get('telefoon'));
+    const adres = sanitize(data.get('adres'));
+    const postcode = sanitize(data.get('postcode'));
+    const plaats = sanitize(data.get('plaats'));
+    const provincie = sanitize(data.get('provincie'));
+    const land = sanitize(data.get('land'));
+    const soortDeur = sanitize(data.get('soortDeur')) || 'Onbekend';
+    const dagmaat = sanitize(data.get('dagmaat'));
 
     try {
       // 1️⃣ Mail naar interne inbox
       await resend.emails.send({
-        from: 'Doormasters <onboarding@door-masters.nl>',
+        from: 'Doormasters <onboarding@info.door-masters.nl>',
         to: 'info@door-masters.nl',
         subject: 'Nieuwe offerte aanvraag',
         html: `
@@ -39,7 +43,7 @@ export const actions = {
         `
       });
 
-      // 1️⃣b Verstuur ook naar je webhook endpoint
+      // 2️⃣ Verstuur naar je webhook endpoint
       await fetch('https://door-master.nl/api/resend-webhook', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -54,9 +58,9 @@ export const actions = {
         })
       });
 
-      // 2️⃣ Bevestigingsmail naar de klant
+      // 3️⃣ Bevestigingsmail naar de klant
       await resend.emails.send({
-        from: 'Doormasters <onboarding@door-masters.nl>',
+        from: 'Doormasters <onboarding@info.door-masters.nl>',
         to: email,
         subject: 'Bevestiging: je offerte aanvraag',
         html: `
