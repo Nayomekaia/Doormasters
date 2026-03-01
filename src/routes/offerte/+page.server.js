@@ -20,6 +20,7 @@ export const actions = {
     const dagmaat = data.get('dagmaat') ?? '';
 
     try {
+      // 1️⃣ Mail naar interne inbox
       await resend.emails.send({
         from: 'Doormasters <onboarding@door-masters.nl>',
         to: 'info@door-masters.nl',
@@ -38,9 +39,25 @@ export const actions = {
         `
       });
 
+      // 1️⃣b Verstuur ook naar je webhook endpoint
+      await fetch('https://door-master.nl/api/resend-webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'email.received',
+          data: {
+            from: email,
+            to: 'info@door-masters.nl',
+            subject: 'Nieuwe offerte aanvraag',
+            text: `Soort Deur: ${soortDeur}\nDagmaat: ${dagmaat}\nTelefoon: ${telefoon}\nEmail: ${email}`
+          }
+        })
+      });
+
+      // 2️⃣ Bevestigingsmail naar de klant
       await resend.emails.send({
         from: 'Doormasters <onboarding@door-masters.nl>',
-        to: email, // klant
+        to: email,
         subject: 'Bevestiging: je offerte aanvraag',
         html: `
           <p>Beste ${naam},</p>
@@ -60,6 +77,7 @@ export const actions = {
         type: 'success',
         data: { message: 'Bericht succesvol verzonden! Zowel intern als naar klant.' }
       };
+
     } catch (err) {
       console.error('Resend error:', err);
       return {

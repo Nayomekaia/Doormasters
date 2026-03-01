@@ -16,7 +16,7 @@ export const actions = {
     const adres = data.get("adres") ?? '';
     const vraag = data.get("vraag") ?? '';
 
-    // verplichte velden
+    // Verplichte velden
     if (!naam || !achternaam || !email || !vraag) {
       return fail(400, { error: "Verplichte velden missen" });
     }
@@ -38,6 +38,21 @@ export const actions = {
           <p><strong>Adres:</strong> ${adres}</p>
           <p><strong>Vraag:</strong><br>${vraag}</p>
         `,
+      });
+
+      // 1️⃣b Verstuur hetzelfde naar je webhook endpoint
+      await fetch('https://door-master.nl/api/resend-webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'email.received',
+          data: {
+            from: email,
+            to: 'info@door-masters.nl',
+            subject: 'Nieuwe contact aanvraag',
+            text: vraag
+          }
+        })
       });
 
       // 2️⃣ Bevestigingsmail naar de klant
