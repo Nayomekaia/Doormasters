@@ -35,7 +35,7 @@ export const actions = {
       // 📩 Mail naar jou
       await resend.emails.send({
         from: 'Door Masters <info@door-masters.nl>',
-        to: 'info@door-masters.nl',
+        to: 'nb@lenardandlenard.com ',
         reply_to: email,
         subject: 'Nieuwe offerte aanvraag',
         html: `
