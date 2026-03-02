@@ -27,9 +27,8 @@ export const actions = {
 
     try {
 
-      // 📩 1️⃣ Mail naar jou
       await resend.emails.send({
-      from: "Door Masters <info@mail.door-masters.nl>",
+      from: "Door Masters <info@door-masters.nl>",
         to: "info@door-masters.nl",
         reply_to: email,
         subject: `Nieuwe aanvraag van ${naam}`,
@@ -45,13 +44,13 @@ export const actions = {
         `,
       });
 
-      // 📧 2️⃣ Bevestiging naar klant
+  
       await resend.emails.send({
         from: "Door Masters <info@door-masters.nl>",
         to: email,
         subject: "Wij hebben uw aanvraag ontvangen",
         html: `
-          <h2>Bedankt voor uw aanvraag, ${naam} 👋</h2>
+          <h2>Bedankt voor uw aanvraag, ${naam} </h2>
           <p>Wij hebben uw bericht goed ontvangen en nemen zo snel mogelijk contact met u op.</p>
           <br />
           <p><strong>Uw bericht:</strong></p>
