@@ -28,7 +28,7 @@ export const actions = {
     try {
 
       await resend.emails.send({
-      from: "Door Masters <info@mail.door-masters.nl>",
+        from: "DOORMASTERS BV <info@mail.door-masters.nl>",
         to: "info@door-masters.nl",
         reply_to: email,
         subject: `Nieuwe aanvraag van ${naam}`,
@@ -46,7 +46,7 @@ export const actions = {
 
   
       await resend.emails.send({
-        from: "Door Masters <info@mail.door-masters.nl>",
+        from: "DOORMASTERS BV <info@mail.door-masters.nl>",
         to: email,
         subject: "Wij hebben je aanvraag ontvangen",
         html: `
@@ -57,7 +57,7 @@ export const actions = {
           <p>${vraag.replace(/\n/g, "<br>")}</p>
           <br />
           <p>Met vriendelijke groet,</p>
-          <p><strong>Door Masters</strong></p>
+          <p><strong>DOORMASTERS BV</strong></p>
         `,
       });
 

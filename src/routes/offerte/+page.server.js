@@ -33,7 +33,7 @@ export const actions = {
 
     try {
       await resend.emails.send({
-		from: "Door Masters <info@mail.door-masters.nl>",
+        from: "DOORMASTERS BV <info@mail.door-masters.nl>",
         to: 'info@door-masters.nl',
         reply_to: email,
         subject: 'Nieuwe offerte aanvraag',
@@ -55,7 +55,7 @@ export const actions = {
 
   
       await resend.emails.send({
-        from: "Door Masters <info@mail.door-masters.nl>",
+        from: "DOORMASTERS BV <info@mail.door-masters.nl>",
         to: email,
         subject: 'Bevestiging van je offerte aanvraag',
         html: `
@@ -70,7 +70,7 @@ export const actions = {
             <li>Telefoon: ${telefoon}</li>
           </ul>
           <br />
-          <p>Met vriendelijke groet,<br/>Doormasters</p>
+          <p>Met vriendelijke groet,<br/>DOORMASTERS BV</p>
         `
       });
 
