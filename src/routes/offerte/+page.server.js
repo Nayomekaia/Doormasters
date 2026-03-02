@@ -55,7 +55,7 @@ export const actions = {
 
   
       await resend.emails.send({
-        from: 'Door Masters <info@door-masters.nl>',
+        from: "Door Masters <info@mail.door-masters.nl>",
         to: email,
         subject: 'Bevestiging van je offerte aanvraag',
         html: `
