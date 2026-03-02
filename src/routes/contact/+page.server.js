@@ -30,7 +30,7 @@ export const actions = {
       // 📩 1️⃣ Mail naar jou
       await resend.emails.send({
       from: "Door Masters <info@mail.door-masters.nl>",
-        to: "gd@door-masters.nl",
+        to: "info@door-masters.nl",
         reply_to: email,
         subject: `Nieuwe aanvraag van ${naam}`,
         html: `
