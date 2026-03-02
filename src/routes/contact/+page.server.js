@@ -1,89 +1,72 @@
 import { Resend } from "resend";
-import { RESEND_API_KEY } from '$env/static/private';
+import { RESEND_API_KEY } from "$env/static/private";
 import { fail } from "@sveltejs/kit";
 
 const resend = new Resend(RESEND_API_KEY);
-const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Kleine sanitization functie
-const sanitize = str =>
-  str ? str.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char])) : '';
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
 
-    const naam = sanitize(data.get("naam"));
-    const achternaam = sanitize(data.get("achternaam"));
-    const telefoon = sanitize(data.get("telefoon"));
-    const email = sanitize(data.get("email"));
-    const adres = sanitize(data.get("adres"));
-    const vraag = sanitize(data.get("vraag"));
+    const naam = data.get("naam")?.trim();
+    const achternaam = data.get("achternaam")?.trim();
+    const telefoon = data.get("telefoon")?.trim();
+    const email = data.get("email")?.trim();
+    const adres = data.get("adres")?.trim();
+    const vraag = data.get("vraag")?.trim();
 
-    // Verplichte velden
     if (!naam || !achternaam || !email || !vraag) {
-      return fail(400, { error: "Verplichte velden missen" });
+      return fail(400, { error: "Vul alle verplichte velden in." });
     }
 
-    if (!regex.test(email)) {
-      return fail(400, { error: "Ongeldig e-mailadres" });
+    if (!emailRegex.test(email)) {
+      return fail(400, { error: "Ongeldig e-mailadres." });
     }
 
     try {
-      // 1️⃣ Mail naar interne inbox
+
+      // 📩 1️⃣ Mail naar jou
       await resend.emails.send({
-        from: "Doormasters <onboarding@info.door-masters.nl>",
+        from: "Door Masters <info@door-masters.nl>",
         to: "info@door-masters.nl",
-        subject: "Nieuwe contact aanvraag",
+        reply_to: email,
+        subject: `Nieuwe aanvraag van ${naam}`,
         html: `
+          <h2>Nieuwe contactaanvraag</h2>
           <p><strong>Naam:</strong> ${naam} ${achternaam}</p>
+          <p><strong>Telefoon:</strong> ${telefoon || "Niet ingevuld"}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Telefoon:</strong> ${telefoon}</p>
-          <p><strong>Adres:</strong> ${adres}</p>
-          <p><strong>Vraag:</strong><br>${vraag}</p>
+          <p><strong>Adres:</strong> ${adres || "Niet ingevuld"}</p>
+          <hr />
+          <p><strong>Vraag:</strong></p>
+          <p>${vraag.replace(/\n/g, "<br>")}</p>
         `,
       });
 
-      // 1️⃣b Verstuur ook naar je webhook endpoint
-      await fetch('https://door-master.nl/api/resend-webhook', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'email.received',
-          data: {
-            from: email,
-            to: 'info@door-masters.nl',
-            subject: 'Nieuwe contact aanvraag',
-            text: vraag
-          }
-        })
-      });
-
-      // 2️⃣ Bevestigingsmail naar de klant
+      // 📧 2️⃣ Bevestiging naar klant
       await resend.emails.send({
-        from: "Doormasters <onboarding@info.door-masters.nl>",
+        from: "Door Masters <info@door-masters.nl>",
         to: email,
-        subject: "Bevestiging: je contactaanvraag",
+        subject: "Wij hebben uw aanvraag ontvangen",
         html: `
-          <p>Beste ${naam},</p>
-          <p>Bedankt voor je contactaanvraag bij Doormasters! We hebben je bericht ontvangen en nemen zo snel mogelijk contact met je op.</p>
-          <p>Hier is een overzicht van je aanvraag:</p>
-          <ul>
-            <li>Naam: ${naam} ${achternaam}</li>
-            <li>Telefoon: ${telefoon}</li>
-            <li>Email: ${email}</li>
-            <li>Adres: ${adres}</li>
-            <li>Vraag: ${vraag}</li>
-          </ul>
-          <p>Met vriendelijke groet,<br>Team Doormasters</p>
+          <h2>Bedankt voor uw aanvraag, ${naam} 👋</h2>
+          <p>Wij hebben uw bericht goed ontvangen en nemen zo snel mogelijk contact met u op.</p>
+          <br />
+          <p><strong>Uw bericht:</strong></p>
+          <p>${vraag.replace(/\n/g, "<br>")}</p>
+          <br />
+          <p>Met vriendelijke groet,</p>
+          <p><strong>Door Masters</strong></p>
         `,
       });
 
       return { success: true };
 
     } catch (error) {
-      console.error("Mail error:", error);
-      return fail(500, { error: "Verzenden mislukt" });
+      console.error("Resend error:", error);
+      return fail(500, { error: "Er ging iets mis bij het verzenden." });
     }
   }
 };
