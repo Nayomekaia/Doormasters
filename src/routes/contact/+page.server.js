@@ -29,7 +29,7 @@ export const actions = {
 
       // 📩 1️⃣ Mail naar jou
       await resend.emails.send({
-        from: "Door Masters <info@door-masters.nl>",
+       from: "Door Masters <noreply@mail.door-masters.nl>",
         to: "gd@door-masters.nl",
         reply_to: email,
         subject: `Nieuwe aanvraag van ${naam}`,
