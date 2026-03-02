@@ -70,7 +70,7 @@ export const actions = {
             <li>Telefoon: ${telefoon}</li>
           </ul>
           <br />
-          <p>Met vriendelijke groet,<br/>Door Masters</p>
+          <p>Met vriendelijke groet,<br/>Doormasters</p>
         `
       });
 

@@ -48,12 +48,12 @@ export const actions = {
       await resend.emails.send({
         from: "Door Masters <info@mail.door-masters.nl>",
         to: email,
-        subject: "Wij hebben uw aanvraag ontvangen",
+        subject: "Wij hebben je aanvraag ontvangen",
         html: `
-          <h2>Bedankt voor uw aanvraag, ${naam} </h2>
-          <p>Wij hebben uw bericht goed ontvangen en nemen zo snel mogelijk contact met u op.</p>
+          <h2>Bedankt voor je aanvraag, ${naam}</h2>
+          <p>We hebben je bericht goed ontvangen en nemen zo snel mogelijk contact met je op.</p>
           <br />
-          <p><strong>Uw bericht:</strong></p>
+          <p><strong>Je bericht:</strong></p>
           <p>${vraag.replace(/\n/g, "<br>")}</p>
           <br />
           <p>Met vriendelijke groet,</p>

@@ -2,15 +2,27 @@
   export let href = null; // null = button, anders link
   export let variant = "silver";
   export let type = "button"; // "button" of "submit"
-  export let mobileOnly = false; // nieuwe prop, standaard false
+  export let mobileOnly = false;
+
+  // ⚡ Dit zorgt dat events automatisch worden doorgestuurd
+  export let disabled = false;
 </script>
 
 {#if href}
-  <a class="btn {variant} {mobileOnly ? 'mobile-only' : ''}" href={href}>
+  <a
+    class="btn {variant} {mobileOnly ? 'mobile-only' : ''}"
+    href={href}
+    on:click
+  >
     <slot />
   </a>
 {:else}
-  <button class="btn {variant} {mobileOnly ? 'mobile-only' : ''}" type={type}>
+  <button
+    class="btn {variant} {mobileOnly ? 'mobile-only' : ''}"
+    type={type}
+    disabled={disabled}
+    on:click
+  >
     <slot />
   </button>
 {/if}
@@ -26,12 +38,19 @@
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  position: relative; 
+  position: relative;
+  border: none;
+}
+
+/* disabled state */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* mobile-only */
 .mobile-only {
-  display: inline-flex; /* standaard zichtbaar op mobiel */
+  display: inline-flex;
 }
 
 /* hide op tablet+ */
@@ -41,9 +60,7 @@
   }
 }
 
-/* bestaande variant styling blijft hetzelfde */
-
-/* silver */
+/* silver variant */
 .silver {
   color: var(--neutral-900);
   background: linear-gradient(
